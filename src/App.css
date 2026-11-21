@@ -375,3 +375,238 @@ main > p {
     width: 100%;
   }
 }
+
+/* Navigasi Tab */
+
+.tab-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.tab-button {
+  padding: 11px 20px;
+  color: #cbd5e1;
+  background: #111c31;
+  border: 1px solid #263650;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.tab-button:hover {
+  border-color: #3b82f6;
+  color: #f8fafc;
+}
+
+.tab-button.active {
+  color: #ffffff;
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+/* Dashboard & Statistik (Orang 3) */
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 44px;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px;
+  background: #111c31;
+  border: 1px solid #263650;
+  border-radius: 14px;
+}
+
+.stat-label {
+  color: #94a3b8;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.stat-value {
+  color: #f8fafc;
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+
+.stat-hint {
+  color: #94a3b8;
+  font-size: 0.78rem;
+}
+
+/* Offer Comparator */
+
+.offer-comparator {
+  padding: 24px;
+  background: #111c31;
+  border: 1px solid #263650;
+  border-radius: 18px;
+}
+
+.comparator-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.comparator-header h2 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 1.35rem;
+}
+
+.comparator-header p {
+  margin: 4px 0 0;
+  color: #94a3b8;
+  font-size: 0.88rem;
+}
+
+.comparator-selectors {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.comparator-selectors select {
+  padding: 9px 12px;
+  color: #e2e8f0;
+  background: #0b1426;
+  border: 1px solid #334155;
+  border-radius: 10px;
+}
+
+.comparator-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.offer-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px;
+  background: #0b1426;
+  border: 1px solid #263650;
+  border-radius: 14px;
+}
+
+.offer-winner {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 1px rgb(34 197 94 / 30%);
+}
+
+.offer-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.offer-card-head h3 {
+  margin: 0;
+  color: #f8fafc;
+}
+
+.offer-role {
+  margin: 4px 0 0;
+  color: #93c5fd;
+  font-size: 0.9rem;
+}
+
+.winner-badge {
+  padding: 5px 10px;
+  color: #86efac;
+  background: rgb(22 101 52 / 35%);
+  border: 1px solid #166534;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.offer-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 0;
+  border-top: 1px solid #1e293b;
+  border-bottom: 1px solid #1e293b;
+}
+
+.offer-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr auto;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: #cbd5e1;
+}
+
+.offer-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #f8fafc;
+  font-weight: 700;
+}
+
+.offer-total strong {
+  font-size: 1.4rem;
+  color: #60a5fa;
+}
+
+/* Toast Undo */
+
+.undo-toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  color: #f8fafc;
+  background: #0f172a;
+  border: 1px solid #3b82f6;
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgb(0 0 0 / 45%);
+}
+
+.undo-button {
+  padding: 7px 12px;
+  color: #0f172a;
+  background: #60a5fa;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+@media (max-width: 960px) {
+  .stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .comparator-grid {
+    grid-template-columns: 1fr;
+  }
+}
