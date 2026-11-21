@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1001,
+    "title": "Frontend Developer Intern",
+    "company_name": "Nusantara Cloud",
+    "category": "Software Development",
+    "candidate_required_location": "Surabaya (Hybrid)",
+    "salary": "Rp 2.500.000",
+    "tags": ["React", "TypeScript", "CSS"]
+  },
+  {
+    "id": 1002,
+    "title": "Backend Developer Intern",
+    "company_name": "Garuda Digital",
+    "category": "Software Development",
+    "candidate_required_location": "Jakarta (Onsite)",
+    "salary": "Rp 3.000.000",
+    "tags": ["Node.js", "Express", "PostgreSQL"]
+  },
+  {
+    "id": 1003,
+    "title": "Data Analyst Intern",
+    "company_name": "Data Nusantara",
+    "category": "Data",
+    "candidate_required_location": "Remote",
+    "salary": "Rp 2.000.000",
+    "tags": ["Python", "SQL", "Excel"]
+  },
+  {
+    "id": 1004,
+    "title": "UI/UX Designer Intern",
+    "company_name": "Kreasi Digital",
+    "category": "Design",
+    "candidate_required_location": "Bandung (Hybrid)",
+    "salary": "Rp 1.800.000",
+    "tags": ["Figma", "UI Design", "Prototyping"]
+  },
+  {
+    "id": 1005,
+    "title": "Mobile Developer Intern",
+    "company_name": "Aplikasi Kita",
+    "category": "Software Development",
+    "candidate_required_location": "Jakarta (Hybrid)",
+    "salary": "Rp 2.500.000",
+    "tags": ["Kotlin", "Android", "REST API"]
+  },
+  {
+    "id": 1006,
+    "title": "QA Engineer Intern",
+    "company_name": "QualityTech",
+    "category": "Quality Assurance",
+    "candidate_required_location": "Remote",
+    "salary": "Rp 2.000.000",
+    "tags": ["Manual Testing", "Postman", "Selenium"]
+  },
+  {
+    "id": 1007,
+    "title": "Machine Learning Intern",
+    "company_name": "AI Indonesia",
+    "category": "Data",
+    "candidate_required_location": "Jakarta (Hybrid)",
+    "salary": "Rp 3.500.000",
+    "tags": ["Python", "Machine Learning", "TensorFlow"]
+  },
+  {
+    "id": 1008,
+    "title": "Cyber Security Intern",
+    "company_name": "SecureNet",
+    "category": "Security",
+    "candidate_required_location": "Jakarta (Onsite)",
+    "salary": "Rp 2.500.000",
+    "tags": ["Linux", "Networking", "Cyber Security"]
+  },
+  {
+    "id": 1009,
+    "title": "DevOps Intern",
+    "company_name": "CloudWorks",
+    "category": "Infrastructure",
+    "candidate_required_location": "Remote",
+    "salary": "Rp 3.000.000",
+    "tags": ["Docker", "Linux", "CI/CD"]
+  },
+  {
+    "id": 1010,
+    "title": "Full Stack Developer Intern",
+    "company_name": "TechStart",
+    "category": "Software Development",
+    "candidate_required_location": "Surabaya (Hybrid)",
+    "salary": "Rp 2.500.000",
+    "tags": ["React", "Node.js", "MongoDB"]
+  },
+  {
+    "id": 1011,
+    "title": "Database Intern",
+    "company_name": "Database Solutions",
+    "category": "Data",
+    "candidate_required_location": "Yogyakarta (Onsite)",
+    "salary": "Rp 1.800.000",
+    "tags": ["SQL", "MySQL", "Database Design"]
+  },
+  {
+    "id": 1012,
+    "title": "Python Developer Intern",
+    "company_name": "PythonWorks",
+    "category": "Software Development",
+    "candidate_required_location": "Remote",
+    "salary": "Rp 2.200.000",
+    "tags": ["Python", "Django", "REST API"]
+  },
+  {
+    "id": 1013,
+    "title": "Cloud Engineer Intern",
+    "company_name": "Cloud Indonesia",
+    "category": "Infrastructure",
+    "candidate_required_location": "Jakarta (Hybrid)",
+    "salary": "Rp 3.000.000",
+    "tags": ["AWS", "Linux", "Docker"]
+  },
+  {
+    "id": 1014,
+    "title": "Data Science Intern",
+    "company_name": "Insight Analytics",
+    "category": "Data",
+    "candidate_required_location": "Remote",
+    "salary": "Rp 2.500.000",
+    "tags": ["Python", "Pandas", "Statistics"]
+  },
+  {
+    "id": 1015,
+    "title": "Web Developer Intern",
+    "company_name": "WebKarya",
+    "category": "Software Development",
+    "candidate_required_location": "Surabaya (Onsite)",
+    "salary": "Rp 1.800.000",
+    "tags": ["HTML", "CSS", "JavaScript"]
+  }
+]
