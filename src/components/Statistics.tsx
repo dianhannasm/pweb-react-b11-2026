@@ -8,11 +8,15 @@ interface StatisticsProps {
 const FOURTEEN_DAYS_MS = 14 * 24 * 60 * 60 * 1000;
 
 function isGhostingRisk(app: Application): boolean {
+  if (app.status === "GHOSTED") {
+    return true;
+  }
+
   if (app.status !== "APPLIED" && app.status !== "SCREENING") {
     return false;
   }
 
-  const updatedTime = Date.parse(app.lastUpdatedAt);
+  const updatedTime = Date.parse(app.appliedDate || app.lastUpdatedAt);
   if (Number.isNaN(updatedTime)) {
     return false;
   }

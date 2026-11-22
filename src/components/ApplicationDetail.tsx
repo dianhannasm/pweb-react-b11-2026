@@ -4,6 +4,7 @@ import type {
   Application,
   ApplicationStatus,
   ChecklistItem,
+  WorkMode,
 } from "../types/application";
 import {
   canTransitionStatus,
@@ -15,6 +16,7 @@ interface ApplicationDetailProps {
   application: Application;
   onBack: () => void;
   onUpdate: (updatedApplication: Application) => void;
+  onDelete: (id: string) => void;
 }
 
 const statusLabels: Record<ApplicationStatus, string> = {
@@ -31,11 +33,19 @@ export function ApplicationDetail({
   application,
   onBack,
   onUpdate,
+  onDelete,
 }: ApplicationDetailProps) {
   const [newChecklistText, setNewChecklistText] = useState("");
   const [newSubtaskTexts, setNewSubtaskTexts] = useState<
     Record<string, string>
   >({});
+  const [salaryInput, setSalaryInput] = useState(
+    application.salaryOffer ? String(application.salaryOffer) : "",
+  );
+  const [offerWorkMode, setOfferWorkMode] = useState<WorkMode>(
+    application.workMode,
+  );
+  const [statusError, setStatusError] = useState("");
 
   const allowedStatuses = getAllowedNextStatuses(application.status);
 
@@ -62,6 +72,27 @@ export function ApplicationDetail({
 
   function handleStatusChange(nextStatus: ApplicationStatus) {
     if (!canTransitionStatus(application.status, nextStatus)) return;
+    setStatusError("");
+
+    if (nextStatus === "OFFER") {
+      const parsedSalary = Number(salaryInput);
+      if (!salaryInput.trim() || Number.isNaN(parsedSalary) || parsedSalary <= 0) {
+        setStatusError(
+          "Uang saku (salaryOffer > 0) wajib diisi sebelum pindah ke status OFFER.",
+        );
+        return;
+      }
+
+      addActivity(
+        {
+          status: nextStatus,
+          salaryOffer: parsedSalary,
+          workMode: offerWorkMode,
+        },
+        `Status berubah dari ${application.status} menjadi ${nextStatus} (Rp ${parsedSalary.toLocaleString("id-ID")})`,
+      );
+      return;
+    }
 
     addActivity(
       { status: nextStatus },
@@ -226,13 +257,21 @@ export function ApplicationDetail({
 
       <div className="detail-header">
         <div>
-          <h2>{application.role}</h2>
-          <p>{application.company}</p>
-        </div>
-
-        <span className="detail-status">
-          {statusLabels[application.status]}
-        </span>
+           <h2>{application.role}</h2>
+           <p>{application.company}</p>
+         </div>
+         <div className="detail-header-actions">
+           <span className="detail-status">
+             {statusLabels[application.status]}
+           </span>
+           <button
+             type="button"
+             className="detail-delete-button"
+             onClick={() => onDelete(application.id)}
+           >
+             Hapus
+           </button>
+         </div>
       </div>
 
       <div className="detail-info">
@@ -259,6 +298,42 @@ export function ApplicationDetail({
 
       <div className="detail-section">
         <h3>Perbarui Status Lamaran</h3>
+
+        {statusError && (
+          <p className="form-error" role="alert">
+            {statusError}
+          </p>
+        )}
+
+        {allowedStatuses.includes("OFFER") && (
+          <div className="offer-transition-fields">
+            <label>
+              <span>Uang Saku / Salary Offer (Rp)</span>
+              <input
+                type="number"
+                min={1}
+                step={100000}
+                placeholder="Contoh: 5500000"
+                value={salaryInput}
+                onChange={(event) => setSalaryInput(event.target.value)}
+              />
+            </label>
+
+            <label>
+              <span>Mode Kerja Offer</span>
+              <select
+                value={offerWorkMode}
+                onChange={(event) =>
+                  setOfferWorkMode(event.target.value as WorkMode)
+                }
+              >
+                <option value="Remote">Remote</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="Onsite">Onsite</option>
+              </select>
+            </label>
+          </div>
+        )}
 
         {allowedStatuses.length === 0 ? (
           <p>Status ini sudah merupakan status akhir.</p>
