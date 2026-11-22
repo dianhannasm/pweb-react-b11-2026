@@ -15,6 +15,7 @@ interface ApplicationDetailProps {
   application: Application;
   onBack: () => void;
   onUpdate: (updatedApplication: Application) => void;
+  onDelete: (id: string) => void;
 }
 
 const statusLabels: Record<ApplicationStatus, string> = {
@@ -31,6 +32,7 @@ export function ApplicationDetail({
   application,
   onBack,
   onUpdate,
+  onDelete,
 }: ApplicationDetailProps) {
   const [newChecklistText, setNewChecklistText] = useState("");
   const [newSubtaskTexts, setNewSubtaskTexts] = useState<
@@ -226,13 +228,21 @@ export function ApplicationDetail({
 
       <div className="detail-header">
         <div>
-          <h2>{application.role}</h2>
-          <p>{application.company}</p>
-        </div>
-
-        <span className="detail-status">
-          {statusLabels[application.status]}
-        </span>
+           <h2>{application.role}</h2>
+           <p>{application.company}</p>
+         </div>
+         <div className="detail-header-actions">
+           <span className="detail-status">
+             {statusLabels[application.status]}
+           </span>
+           <button
+             type="button"
+             className="detail-delete-button"
+             onClick={() => onDelete(application.id)}
+           >
+             Hapus
+           </button>
+         </div>
       </div>
 
       <div className="detail-info">

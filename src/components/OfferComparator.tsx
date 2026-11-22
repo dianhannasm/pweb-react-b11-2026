@@ -122,12 +122,12 @@ export function OfferComparator({
           >
             {offers.map((item) => (
               <option key={item.id} value={item.id}>
-                Offer A: {item.company} — {item.role}
+                Offer A: {item.company}
               </option>
             ))}
           </select>
 
-          <span>vs</span>
+          <span className="comparator-vs">vs</span>
 
           <select
             aria-label="Pilih Offer B"
@@ -136,7 +136,7 @@ export function OfferComparator({
           >
             {offers.map((item) => (
               <option key={item.id} value={item.id}>
-                Offer B: {item.company} — {item.role}
+                Offer B: {item.company}
               </option>
             ))}
           </select>

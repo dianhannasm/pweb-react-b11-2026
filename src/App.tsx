@@ -210,17 +210,6 @@ function App() {
 
         <button
           type="button"
-          className={`tab-button ${activeTab === "dashboard" ? "active" : ""}`}
-          onClick={() => {
-            setActiveTab("dashboard");
-            setSelectedApplicationId(null);
-          }}
-        >
-          Dashboard &amp; Offer ({applications.length})
-        </button>
-
-        <button
-          type="button"
           className={`tab-button ${activeTab === "pipeline" ? "active" : ""}`}
           onClick={() => {
             setActiveTab("pipeline");
@@ -228,6 +217,17 @@ function App() {
           }}
         >
           War Room Pipeline
+        </button>
+
+        <button
+          type="button"
+          className={`tab-button ${activeTab === "dashboard" ? "active" : ""}`}
+          onClick={() => {
+            setActiveTab("dashboard");
+            setSelectedApplicationId(null);
+          }}
+        >
+          Dashboard &amp; Offer ({applications.length})
         </button>
       </nav>
 
@@ -242,6 +242,7 @@ function App() {
             application={selectedApplication}
             onBack={() => setSelectedApplicationId(null)}
             onUpdate={handleUpdateApplication}
+            onDelete={handleDeleteApplication}
           />
         ) : (
           <Pipeline
