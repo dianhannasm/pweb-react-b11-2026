@@ -104,6 +104,27 @@ export function OfferComparator({
     { key: "B", offer: offerB, score: scoreB },
   ];
 
+  const rankedOffers =
+    offers.length > 2
+      ? offers
+          .map((item) => {
+            const maxAllSalary = Math.max(
+              ...offers.map((o) => o.salaryOffer ?? 0),
+            );
+            return {
+              offer: item,
+              score: evaluateOffer(item, maxAllSalary, kaptenSkills),
+            };
+          })
+          .sort((a, b) => b.score.totalScore - a.score.totalScore)
+      : [];
+
+  function handleSelectTopTwo() {
+    if (rankedOffers.length < 2) return;
+    setSelectedIdA(rankedOffers[0].offer.id);
+    setSelectedIdB(rankedOffers[1].offer.id);
+  }
+
   return (
     <section className="offer-comparator" aria-label="Bandingkan Offer Magang">
       <div className="comparator-header">
@@ -142,6 +163,42 @@ export function OfferComparator({
           </select>
         </div>
       </div>
+
+      {rankedOffers.length > 2 && (
+        <div className="offer-ranking" aria-label="Peringkat semua offer">
+          <div className="offer-ranking-head">
+            <div>
+              <strong>Peringkat Semua Offer ({rankedOffers.length})</strong>
+              <p>Urutan otomatis dari skor berbobot tertinggi untuk memudahkan pilihan.</p>
+            </div>
+            <button
+              type="button"
+              className="ranking-top-button"
+              onClick={handleSelectTopTwo}
+            >
+              Bandingkan Top 2
+            </button>
+          </div>
+
+          <div className="offer-ranking-list">
+            {rankedOffers.map(({ offer, score }, index) => (
+              <div
+                key={offer.id}
+                className={`ranking-chip ${index === 0 ? "ranking-chip-top" : ""}`}
+              >
+                <span className="ranking-pos">#{index + 1}</span>
+                <div className="ranking-info">
+                  <strong>{offer.company}</strong>
+                  <small>{offer.role}</small>
+                </div>
+                <span className="ranking-score">
+                  {score.totalScore.toFixed(1)}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="comparator-grid">
         {comparisons.map(({ key, offer, score }) => {

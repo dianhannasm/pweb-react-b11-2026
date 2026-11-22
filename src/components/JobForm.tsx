@@ -16,6 +16,7 @@ export interface ManualApplicationData {
   cvVersion?: string;
   appliedDate?: string;
   interviewDateTime?: string;
+  salaryOffer?: number;
 }
 
 interface ExistingApplication {
@@ -34,6 +35,7 @@ export function JobForm({ applications, onSubmit }: JobFormProps) {
   const cvRef = useRef<HTMLInputElement>(null);
   const dateRef = useRef<HTMLInputElement>(null);
   const interviewRef = useRef<HTMLInputElement>(null);
+  const salaryRef = useRef<HTMLInputElement>(null);
 
   const [company, setCompany] = useState("");
   const [role, setRole] = useState("");
@@ -43,6 +45,7 @@ export function JobForm({ applications, onSubmit }: JobFormProps) {
   const [cvVersion, setCvVersion] = useState("");
   const [appliedDate, setAppliedDate] = useState("");
   const [interviewDateTime, setInterviewDateTime] = useState("");
+  const [salaryOffer, setSalaryOffer] = useState("");
   const [error, setError] = useState("");
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -93,6 +96,15 @@ export function JobForm({ applications, onSubmit }: JobFormProps) {
       return;
     }
 
+    if (
+      status === "OFFER" &&
+      (!salaryOffer.trim() || Number.isNaN(Number(salaryOffer)) || Number(salaryOffer) <= 0)
+    ) {
+      setError("Uang saku (salary offer > 0) wajib diisi untuk status OFFER.");
+      salaryRef.current?.focus();
+      return;
+    }
+
     const data: ManualApplicationData = {
       company: company.trim(),
       role: role.trim(),
@@ -113,6 +125,10 @@ export function JobForm({ applications, onSubmit }: JobFormProps) {
       data.interviewDateTime = interviewDateTime;
     }
 
+    if (status === "OFFER") {
+      data.salaryOffer = Number(salaryOffer);
+    }
+
     onSubmit(data);
 
     setCompany("");
@@ -123,6 +139,7 @@ export function JobForm({ applications, onSubmit }: JobFormProps) {
     setCvVersion("");
     setAppliedDate("");
     setInterviewDateTime("");
+    setSalaryOffer("");
   }
 
   return (
@@ -227,6 +244,22 @@ export function JobForm({ applications, onSubmit }: JobFormProps) {
             onChange={(event) =>
               setInterviewDateTime(event.target.value)
             }
+          />
+        </>
+      )}
+
+      {status === "OFFER" && (
+        <>
+          <label htmlFor="salaryOffer">Uang Saku / Salary Offer (Rp)</label>
+          <input
+            id="salaryOffer"
+            ref={salaryRef}
+            type="number"
+            min={1}
+            step={100000}
+            value={salaryOffer}
+            onChange={(event) => setSalaryOffer(event.target.value)}
+            placeholder="Contoh: 5500000"
           />
         </>
       )}

@@ -518,6 +518,107 @@ main > p {
   font-weight: 600;
 }
 
+.offer-ranking {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #0b1426;
+  border: 1px solid #263650;
+  border-radius: 14px;
+}
+
+.offer-ranking-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.offer-ranking-head strong {
+  color: #f8fafc;
+  font-size: 0.95rem;
+}
+
+.offer-ranking-head p {
+  margin: 2px 0 0;
+  color: #94a3b8;
+  font-size: 0.82rem;
+}
+
+.ranking-top-button {
+  padding: 8px 14px;
+  color: #ffffff;
+  background: #2563eb;
+  border: 1px solid #2563eb;
+  border-radius: 9px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.ranking-top-button:hover {
+  background: #3b82f6;
+}
+
+.offer-ranking-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.ranking-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: #111c31;
+  border: 1px solid #263650;
+  border-radius: 10px;
+}
+
+.ranking-chip-top {
+  border-color: #3b82f6;
+  background: rgb(37 99 235 / 10%);
+}
+
+.ranking-pos {
+  flex-shrink: 0;
+  color: #93c5fd;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.ranking-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.ranking-info strong {
+  color: #f8fafc;
+  font-size: 0.86rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ranking-info small {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ranking-score {
+  flex-shrink: 0;
+  color: #60a5fa;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
 .comparator-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -838,4 +939,29 @@ main > p {
 .detail-delete-button:hover {
   background: #dc2626;
   color: #ffffff;
+}
+
+.offer-transition-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.offer-transition-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.offer-transition-fields input,
+.offer-transition-fields select {
+  padding: 10px 12px;
+  color: #f1f5f9;
+  background: #0b1426;
+  border: 1px solid #334155;
+  border-radius: 10px;
 }

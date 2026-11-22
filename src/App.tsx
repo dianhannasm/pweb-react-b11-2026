@@ -86,6 +86,7 @@ function App() {
       cvVersion: data.cvVersion,
       appliedDate: data.appliedDate,
       interviewDateTime: data.interviewDateTime,
+      salaryOffer: data.salaryOffer,
       lastUpdatedAt: now,
       checklist: [],
       activityLogs: [
