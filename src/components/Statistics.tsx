@@ -7,7 +7,7 @@ interface StatisticsProps {
 
 const FOURTEEN_DAYS_MS = 14 * 24 * 60 * 60 * 1000;
 
-function isGhostingRisk(app: Application): boolean {
+export function isGhostingRisk(app: Application): boolean {
   if (app.status === "GHOSTED") {
     return true;
   }

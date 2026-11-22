@@ -5,6 +5,18 @@ import { useDebounce } from "../hooks/useDebounce";
 import { calculateSkillMatch } from "../utils/skillMatch";
 import { JobCard } from "./JobCard";
 
+function isAbortError(err: unknown): boolean {
+  if (typeof err !== "object" || err === null) {
+    return false;
+  }
+
+  if ("name" in err) {
+    return err.name === "AbortError";
+  }
+
+  return false;
+}
+
 interface SavedApplication {
   company: string;
   role: string;
@@ -45,7 +57,7 @@ export function JobExplorer({
         const data = await fetchJobs(source, controller.signal);
         setJobs(data);
       } catch (err) {
-        if (err instanceof Error && err.name === "AbortError") {
+        if (isAbortError(err)) {
           return;
         }
 
@@ -161,7 +173,7 @@ export function JobExplorer({
           ))}
         </select>
 
-        <label className="sort-control">
+        <label className="sort-control match-sort-toggle">
           <input
             type="checkbox"
             checked={sortByMatch}
@@ -173,6 +185,7 @@ export function JobExplorer({
         </label>
       </div>
 
+      <div className="source-row">
       <div className="source-controls">
         <span>
           Sumber data: {source === "remote" ? "Remotive API" : "Fallback lokal"}
@@ -190,6 +203,7 @@ export function JobExplorer({
             Gunakan Remotive API
           </button>
         )}
+      </div>
       </div>
 
       {loading && (

@@ -256,7 +256,7 @@ export function JobForm({ applications, onSubmit }: JobFormProps) {
             ref={salaryRef}
             type="number"
             min={1}
-            step={100000}
+            step={1}
             value={salaryOffer}
             onChange={(event) => setSalaryOffer(event.target.value)}
             placeholder="Contoh: 5500000"

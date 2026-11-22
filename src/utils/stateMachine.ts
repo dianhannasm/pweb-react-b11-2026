@@ -30,7 +30,7 @@ const allowedTransitions: Record<
 
   REJECTED: [],
 
-  GHOSTED: [],
+  GHOSTED: ["SCREENING"],
 };
 
 export function canTransitionStatus(

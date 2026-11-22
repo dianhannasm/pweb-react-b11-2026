@@ -3,16 +3,18 @@ import { useCallback, useState } from "react";
 import { Dashboard } from "./components/Dashboard";
 import { JobExplorer } from "./components/JobExplorer";
 import { JobForm, type ManualApplicationData } from "./components/JobForm";
+import { KaptenSkillsEditor } from "./components/KaptenSkillsEditor";
 import { Pipeline } from "./components/Pipeline";
 import { ApplicationDetail } from "./components/ApplicationDetail";
 import { UndoToast } from "./components/UndoToast";
 import { useLocalStorage } from "./hooks/useLocalStorage";
-import { detectGhostedApplications } from "./utils/ghostingChecker";
 import type { Application, WorkMode } from "./types/application";
 import type { JobListing } from "./types/job";
 import "./App.css";
 
 type ActiveTab = "explorer" | "dashboard" | "pipeline";
+
+const DAY_MS = 24 * 60 * 60 * 1000;
 
 interface DeletedEntry {
   app: Application;
@@ -34,7 +36,7 @@ function App() {
     [],
   );
 
-  const [kaptenSkills] = useLocalStorage<string[]>(
+  const [kaptenSkills, setKaptenSkills] = useLocalStorage<string[]>(
     "aku-mw-magang:kapten-skills",
     ["React", "TypeScript", "CSS"],
   );
@@ -115,39 +117,21 @@ function App() {
 
     setSimulatedDate(nextDate);
 
-    setApplications((current) => {
-      const ghostedApplications = detectGhostedApplications(
-        current,
-        nextDate,
-      );
-
-      const ghostedIds = new Set(
-        ghostedApplications.map((app) => app.id),
-      );
-
-      return current.map((app) => {
-        if (!ghostedIds.has(app.id)) {
+    setApplications((current) =>
+      current.map((app) => {
+        if (app.status !== "APPLIED" && app.status !== "SCREENING") {
           return app;
         }
 
-        const now = new Date().toISOString();
+        const lastUpdated = new Date(app.lastUpdatedAt);
+        const shifted = new Date(lastUpdated.getTime() - 15 * DAY_MS);
 
         return {
           ...app,
-          status: "GHOSTED",
-          lastUpdatedAt: now,
-          activityLogs: [
-            {
-              id: crypto.randomUUID(),
-              timestamp: now,
-              message:
-                "Status otomatis berubah menjadi GHOSTED setelah simulasi +15 hari tanpa respons.",
-            },
-            ...app.activityLogs,
-          ],
+          lastUpdatedAt: shifted.toISOString(),
         };
-      });
-    });
+      }),
+    );
   }
 
   function handleDeleteApplication(id: string) {
@@ -248,6 +232,7 @@ function App() {
         ) : (
           <Pipeline
             applications={applications}
+            kaptenSkills={kaptenSkills}
             onSelectApplication={(application) =>
               setSelectedApplicationId(application.id)
             }
@@ -257,6 +242,11 @@ function App() {
         )
       ) : (
         <>
+          <KaptenSkillsEditor
+            skills={kaptenSkills}
+            onChange={setKaptenSkills}
+          />
+
           <JobForm
             applications={applications}
             onSubmit={handleAddApplication}

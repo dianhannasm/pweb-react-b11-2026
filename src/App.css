@@ -965,3 +965,681 @@ main > p {
   border: 1px solid #334155;
   border-radius: 10px;
 }
+.source-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.source-row p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.source-row button {
+  margin: 0;
+  padding: 9px 14px;
+  color: #bfdbfe;
+  background: #172554;
+  border: 1px solid #2b4a87;
+  border-radius: 9px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.source-row button:hover {
+  background: #1e3a8a;
+}
+
+.match-sort-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 0 8px;
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.match-sort-toggle input[type="checkbox"] {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+  min-height: 16px;
+  margin: 0;
+  padding: 0;
+  accent-color: #60a5fa;
+}
+
+
+.job-card {
+  background: #121d30;
+  border-color: #24334a;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 10%);
+}
+
+.job-card:hover {
+  border-color: #45638d;
+  transform: translateY(-2px);
+}
+
+.job-card-info {
+  border-top: 1px solid #24334a;
+  border-bottom: 1px solid #24334a;
+}
+
+.job-card h3 {
+  font-size: 1.08rem;
+  letter-spacing: -0.2px;
+}
+
+.job-company {
+  color: #a5b4fc;
+}
+
+.match-badge {
+  font-size: 0.75rem;
+  letter-spacing: 0.1px;
+}
+
+.job-form {
+  background: #121d30;
+  border-color: #263650;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 12%);
+}
+
+.job-form button {
+  background: #315fca;
+}
+
+.job-form button:hover {
+  background: #3b6fdc;
+}
+
+/* Profil Skill Kapten */
+
+.kapten-skills-editor {
+  margin: 0 auto 28px;
+  padding: 24px;
+  color: #e2e8f0;
+  background: #111c31;
+  border: 1px solid #263650;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgb(0 0 0 / 10%);
+}
+
+.kapten-skills-editor h2 {
+  margin: 0 0 6px;
+  color: #f8fafc;
+  font-size: 1.35rem;
+}
+
+.kapten-skills-editor p {
+  margin: 0 0 16px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.kapten-skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.kapten-skill-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  color: #86efac;
+  background: rgb(22 101 52 / 30%);
+  border: 1px solid #166534;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.kapten-skill-remove {
+  padding: 4px 9px;
+  color: #cbd5e1;
+  background: rgb(22 101 52 / 15%);
+  border: 1px solid #166534;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.kapten-skill-remove:hover {
+  color: #fecaca;
+  background: rgb(127 29 29 / 35%);
+  border-color: #7f1d1d;
+}
+
+.kapten-skills-add {
+  display: flex;
+  gap: 10px;
+}
+
+.kapten-skills-add input {
+  flex: 1;
+  min-width: 220px;
+  min-height: 42px;
+  padding: 10px 12px;
+  color: #e2e8f0;
+  background: #0b1426;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  outline: none;
+}
+
+.kapten-skills-add input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgb(59 130 246 / 15%);
+}
+
+.kapten-skills-add button {
+  padding: 10px 15px;
+  color: #dbeafe;
+  background: #1e3a8a;
+  border: 1px solid #1d4ed8;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.kapten-skills-add button:hover {
+  background: #1d4ed8;
+}
+
+.kapten-skills-feedback {
+  margin: 10px 0 0;
+  color: #fde68a;
+  font-size: 0.85rem;
+}
+
+/* Tombol sumber data Eksplorasi Lowongan */
+
+.source-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   PIPELINE — Fitur 3
+========================= */
+
+.pipeline-banner {
+  padding: 14px 18px;
+  color: #fecaca;
+  background: rgb(153 27 27 / 25%);
+  border: 1px solid #dc2626;
+  border-radius: 14px;
+}
+
+.pipeline-banner strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.pipeline-banner p {
+  margin: 0;
+  color: #fecaca;
+  font-size: 0.9rem;
+}
+
+.pipeline-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0 16px;
+}
+
+.pipeline-controls input[type="search"] {
+  flex: 1;
+  min-width: 220px;
+  min-height: 42px;
+  padding: 10px 12px;
+  color: #e2e8f0;
+  background: #0b1426;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  outline: none;
+}
+
+.pipeline-controls input[type="search"]:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgb(59 130 246 / 15%);
+}
+
+.pipeline-controls select {
+  min-height: 42px;
+  padding: 10px 12px;
+  color: #e2e8f0;
+  background: #0b1426;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  outline: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.pipeline-controls select:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgb(59 130 246 / 15%);
+}
+
+.pipeline-controls button {
+  min-height: 42px;
+  padding: 10px 15px;
+  color: #dbeafe;
+  background: #172554;
+  border: 1px solid #2b4a87;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.pipeline-controls button:hover:not(:disabled) {
+  background: #1e3a8a;
+}
+
+.pipeline-controls button:disabled {
+  color: #94a3b8;
+  background: #0f172a;
+  cursor: not-allowed;
+}
+
+.pipeline-ghosting-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+.pipeline-ghosting-toggle input[type="checkbox"] {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+  min-height: 16px;
+  accent-color: #60a5fa;
+}
+
+.pipeline-card-status {
+  color: #93c5fd;
+  font-weight: 700;
+}
+
+.pipeline-card-cv {
+  color: #86efac;
+  font-size: 0.78rem;
+}
+
+.pipeline-card-checklist {
+  color: #cbd5e1;
+  font-size: 0.78rem;
+}
+
+.pipeline-card-match {
+  color: #fde68a;
+  font-size: 0.78rem;
+}
+
+/* =========================
+   APPLICATION DETAIL — Fitur 4
+========================= */
+
+.detail-header {
+  margin-bottom: 18px;
+}
+
+.detail-header h2 {
+  margin: 0 0 4px;
+  color: #f8fafc;
+  font-size: 1.35rem;
+}
+
+.detail-header p {
+  margin: 0;
+  color: #94a3b8;
+}
+
+.detail-back-button {
+  padding: 8px 14px;
+  margin-bottom: 18px;
+  color: #e2e8f0;
+  background: #17243a;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.detail-status {
+  display: inline-block;
+  padding: 6px 12px;
+  color: #93c5fd;
+  background: rgb(37 99 235 / 15%);
+  border: 1px solid #3b82f6;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.detail-info {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+  padding: 14px 0;
+  border-top: 1px solid #334155;
+  border-bottom: 1px solid #334155;
+}
+
+.detail-info span {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.detail-info strong {
+  color: #f1f5f9;
+}
+
+.detail-section {
+  margin-bottom: 24px;
+}
+
+.detail-section h3 {
+  margin: 0 0 12px;
+  color: #f8fafc;
+  font-size: 1.05rem;
+}
+
+.detail-status-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.detail-status-actions button {
+  padding: 8px 12px;
+  color: #dbeafe;
+  background: #172554;
+  border: 1px solid #2b4a87;
+  border-radius: 9px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.detail-status-actions button:hover {
+  background: #1e3a8a;
+}
+
+.detail-checklist {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.detail-checklist li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.detail-checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #e2e8f0;
+  font-size: 0.88rem;
+}
+
+.detail-checklist-item input {
+  accent-color: #60a5fa;
+}
+
+.detail-checklist-item .completed {
+  color: #64748b;
+  text-decoration: line-through;
+}
+
+.detail-checklist-delete {
+  padding: 4px 9px;
+  color: #fecaca;
+  background: transparent;
+  border: 1px solid #7f1d1d;
+  border-radius: 7px;
+  font-size: 0.75rem;
+}
+
+.detail-checklist-delete:hover {
+  background: rgb(127 29 29 / 35%);
+}
+
+.detail-subtask-form {
+  display: flex;
+  gap: 8px;
+  margin-left: 20px;
+}
+
+.detail-subtask-form input {
+  flex: 1;
+  min-width: 160px;
+  padding: 7px 10px;
+  color: #e2e8f0;
+  background: #0b1426;
+  border: 1px solid #334155;
+  border-radius: 7px;
+}
+
+.detail-subtask-form button {
+  padding: 7px 12px;
+  color: #cbd5e1;
+  background: #17243a;
+  border: 1px solid #334155;
+  border-radius: 7px;
+  font-size: 0.75rem;
+}
+
+.checklist-progress-bar {
+  height: 10px;
+  margin: 8px 0 12px;
+  background: #162238;
+  border: 1px solid #293950;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.checklist-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  border-radius: 999px;
+  transition: width 0.2s;
+}
+
+.detail-add-checklist {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.detail-add-checklist input {
+  flex: 1;
+  min-width: 160px;
+  padding: 9px 12px;
+  color: #e2e8f0;
+  background: #0b1426;
+  border: 1px solid #334155;
+  border-radius: 9px;
+}
+
+.detail-add-checklist button {
+  padding: 9px 14px;
+  color: #dbeafe;
+  background: #172554;
+  border: 1px solid #2b4a87;
+  border-radius: 9px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.detail-add-checklist button:hover {
+  background: #1e3a8a;
+}
+
+.activity-log {
+  display: grid;
+  gap: 8px;
+}
+
+.activity-log-item {
+  padding: 10px 12px;
+  color: #e2e8f0;
+  background: #0b1426;
+  border: 1px solid #263650;
+  border-radius: 9px;
+}
+
+.activity-log-item strong {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+}
+
+.activity-log-item span {
+  display: block;
+  margin-top: 2px;
+  color: #64748b;
+  font-size: 0.72rem;
+}
+
+.detail-note {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.detail-note-input {
+  flex: 1;
+  min-width: 240px;
+  padding: 10px 12px;
+  color: #e2e8f0;
+  background: #0b1426;
+  border: 1px solid #334155;
+  border-radius: 9px;
+}
+
+.detail-note button {
+  padding: 9px 14px;
+  color: #dbeafe;
+  background: #172554;
+  border: 1px solid #2b4a87;
+  border-radius: 9px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.detail-note button:hover {
+  background: #1e3a8a;
+}
+
+.detail-note button:disabled {
+  color: #64748b;
+  background: #0f172a;
+  cursor: not-allowed;
+}
+
+/* =========================
+   INTERVIEW TIMER — Fitur 5
+========================= */
+
+.interview-timer {
+  padding: 22px;
+  color: #e2e8f0;
+  background: #111c31;
+  border: 1px solid #263650;
+  border-radius: 18px;
+}
+
+.interview-timer h3 {
+  margin: 0 0 8px;
+  color: #f8fafc;
+  font-size: 1.25rem;
+}
+
+.interview-timer p {
+  margin: 0 0 14px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.interview-question {
+  display: grid;
+  gap: 8px;
+}
+
+.interview-question strong {
+  color: #f8fafc;
+  font-size: 1.05rem;
+}
+
+.interview-question small {
+  color: #cbd5e1;
+  font-size: 0.88rem;
+}
+
+.interview-question-index {
+  margin: 8px 0 0;
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.timer-display {
+  margin: 16px 0;
+  color: #60a5fa;
+  font-size: 2.2rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.timer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.timer-actions button {
+  padding: 9px 14px;
+  color: #dbeafe;
+  background: #172554;
+  border: 1px solid #2b4a87;
+  border-radius: 9px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.timer-actions button:hover {
+  background: #1e3a8a;
+}
+
+.timer-actions button:disabled {
+  color: #64748b;
+  background: #0f172a;
+  cursor: not-allowed;
+}
+
+.timer-finished {
+  margin-top: 12px;
+  color: #fde68a;
+  font-size: 0.85rem;
+}
+

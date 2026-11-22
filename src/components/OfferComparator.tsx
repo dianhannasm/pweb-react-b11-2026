@@ -91,6 +91,9 @@ export function OfferComparator({
     offers.find((o) => o.id !== offerA.id) ??
     offers[1];
 
+  // Normalisasi gaji: salary / maksimum gaji dari dua offer yang dibandingkan
+  // (0 jika tidak ada gaji) — menghasilkan skor normalisasi sebesar 100
+  // untuk offer dengan gaji tertinggi.
   const maxSalary = Math.max(offerA.salaryOffer ?? 0, offerB.salaryOffer ?? 0);
   const scoreA = evaluateOffer(offerA, maxSalary, kaptenSkills);
   const scoreB = evaluateOffer(offerB, maxSalary, kaptenSkills);

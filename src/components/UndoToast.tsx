@@ -81,7 +81,7 @@ export function UndoToast({ deletedApp, onUndo, onExpire }: UndoToastProps) {
         className="undo-button"
         onClick={handleUndoClick}
       >
-        Undo ({secondsLeft}d)
+        Undo ({secondsLeft}s)
       </button>
     </div>
   );
