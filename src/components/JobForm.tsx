@@ -1,7 +1,11 @@
-import { useRef, useState } from "react";
 
-export type ApplicationStatus = "WISHLIST" | "APPLIED";
-export type WorkMode = "Remote" | "Hybrid" | "Onsite";
+import { useRef, useState } from "react";
+import type {
+  ApplicationStatus,
+  WorkMode,
+} from "../types/application";
+
+export type { ApplicationStatus, WorkMode };
 
 export interface ManualApplicationData {
   company: string;
@@ -11,6 +15,7 @@ export interface ManualApplicationData {
   requiredSkills: string[];
   cvVersion?: string;
   appliedDate?: string;
+  interviewDateTime?: string;
 }
 
 interface ExistingApplication {
@@ -28,6 +33,7 @@ export function JobForm({ applications, onSubmit }: JobFormProps) {
   const roleRef = useRef<HTMLInputElement>(null);
   const cvRef = useRef<HTMLInputElement>(null);
   const dateRef = useRef<HTMLInputElement>(null);
+  const interviewRef = useRef<HTMLInputElement>(null);
 
   const [company, setCompany] = useState("");
   const [role, setRole] = useState("");
@@ -36,6 +42,7 @@ export function JobForm({ applications, onSubmit }: JobFormProps) {
   const [skills, setSkills] = useState("");
   const [cvVersion, setCvVersion] = useState("");
   const [appliedDate, setAppliedDate] = useState("");
+  const [interviewDateTime, setInterviewDateTime] = useState("");
   const [error, setError] = useState("");
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -80,6 +87,12 @@ export function JobForm({ applications, onSubmit }: JobFormProps) {
       return;
     }
 
+    if (status === "INTERVIEW" && !interviewDateTime) {
+      setError("Jadwal interview wajib diisi.");
+      interviewRef.current?.focus();
+      return;
+    }
+
     const data: ManualApplicationData = {
       company: company.trim(),
       role: role.trim(),
@@ -96,6 +109,10 @@ export function JobForm({ applications, onSubmit }: JobFormProps) {
       data.appliedDate = appliedDate;
     }
 
+    if (status === "INTERVIEW") {
+      data.interviewDateTime = interviewDateTime;
+    }
+
     onSubmit(data);
 
     setCompany("");
@@ -105,6 +122,7 @@ export function JobForm({ applications, onSubmit }: JobFormProps) {
     setSkills("");
     setCvVersion("");
     setAppliedDate("");
+    setInterviewDateTime("");
   }
 
   return (
@@ -158,6 +176,11 @@ export function JobForm({ applications, onSubmit }: JobFormProps) {
       >
         <option value="WISHLIST">Wishlist</option>
         <option value="APPLIED">Sudah Dilamar</option>
+        <option value="SCREENING">Screening</option>
+        <option value="INTERVIEW">Interview</option>
+        <option value="OFFER">Offer</option>
+        <option value="REJECTED">Rejected</option>
+        <option value="GHOSTED">Ghosted</option>
       </select>
 
       <label htmlFor="skills">Skill yang dibutuhkan</label>
@@ -187,6 +210,23 @@ export function JobForm({ applications, onSubmit }: JobFormProps) {
             type="date"
             value={appliedDate}
             onChange={(event) => setAppliedDate(event.target.value)}
+          />
+        </>
+      )}
+
+      {status === "INTERVIEW" && (
+        <>
+          <label htmlFor="interviewDateTime">
+            Jadwal Interview
+          </label>
+          <input
+            id="interviewDateTime"
+            ref={interviewRef}
+            type="datetime-local"
+            value={interviewDateTime}
+            onChange={(event) =>
+              setInterviewDateTime(event.target.value)
+            }
           />
         </>
       )}

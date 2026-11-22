@@ -1,3 +1,4 @@
+
 export type ApplicationStatus =
   | "WISHLIST"
   | "APPLIED"
@@ -13,6 +14,7 @@ export interface ChecklistItem {
   id: string;
   text: string;
   done: boolean;
+  children?: ChecklistItem[];
 }
 
 export interface ActivityLog {
