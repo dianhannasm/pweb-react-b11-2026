@@ -1,0 +1,119 @@
+- main [ref=e3]:
+  - navigation "Navigasi aplikasi" [ref=e4]:
+    - button "Beranda" [ref=e5] [cursor=pointer]
+    - button "Eksplorasi Lowongan" [ref=e6] [cursor=pointer]
+    - button "War Room Pipeline" [active] [ref=e7] [cursor=pointer]
+    - button "Dashboard & Offer" [ref=e8] [cursor=pointer]
+  - region "War Room Pipeline" [ref=e1466]:
+    - alert [ref=e1467]:
+      - strong [ref=e1468]: Peringatan Bentrok Interview
+      - paragraph [ref=e1469]: Terdeteksi 1 lamaran berstatus INTERVIEW dengan jadwal yang bertabrakan (< 60 menit). Pastikan jadwal interview mereka tidak bertabrakan.
+    - generic [ref=e1470]:
+      - generic [ref=e1471]:
+        - heading "War Room Pipeline" [level=2] [ref=e1472]
+        - paragraph [ref=e1473]: Pantau perjalanan setiap lamaran magangmu.
+      - generic [ref=e1474]: 10 Total Lamaran
+    - generic [ref=e1475]:
+      - generic [ref=e1476]: 23/11/2026
+      - button "Simulasikan +15 Hari" [ref=e1477] [cursor=pointer]
+      - searchbox "Cari lamaran di pipeline" [ref=e1478]
+      - combobox "Filter status lamaran" [ref=e1479] [cursor=pointer]:
+        - option "Semua status" [selected]
+        - option "Wishlist"
+        - option "Applied"
+        - option "Screening"
+        - option "Interview"
+        - option "Offer"
+        - option "Rejected"
+        - option "Ghosted"
+      - generic [ref=e1480]:
+        - checkbox "Hanya Rawan Ghosting" [ref=e1481]
+        - text: Hanya Rawan Ghosting
+      - combobox "Urutkan lamaran" [ref=e1482] [cursor=pointer]:
+        - option "Terbaru" [selected]
+        - option "Jadwal Interview Terdekat"
+        - option "Offer Tertinggi"
+    - generic [ref=e1483]:
+      - generic [ref=e1484]:
+        - generic [ref=e1485]: Total Lamaran
+        - strong [ref=e1486]: "10"
+      - generic [ref=e1487]:
+        - generic [ref=e1488]: Interview
+        - strong [ref=e1489]: "2"
+      - generic [ref=e1490]:
+        - generic [ref=e1491]: Ghosted
+        - strong [ref=e1492]: "1"
+      - generic [ref=e1493]:
+        - generic [ref=e1494]: Jadwal Bentrok
+        - strong [ref=e1495]: "1"
+    - generic [ref=e1496]:
+      - button "Wishlist 0 +" [ref=e1498] [cursor=pointer]:
+        - heading "Wishlist" [level=3] [ref=e1499]
+        - generic [ref=e1500]: "0"
+        - generic [ref=e1501]: +
+      - generic [ref=e1502]:
+        - button "Applied 2 −" [expanded] [ref=e1503] [cursor=pointer]:
+          - heading "Applied" [level=3] [ref=e1504]
+          - generic [ref=e1505]: "2"
+          - generic [ref=e1506]: −
+        - list [ref=e1507]:
+          - listitem [ref=e1508]:
+            - 'button "Role SIM1 SIM1 Status: Applied CV: CV-SIM1 Checklist: 0/0 Skill Match: 0%" [ref=e1509] [cursor=pointer]':
+              - strong [ref=e1510]: Role SIM1
+              - generic [ref=e1511]: SIM1
+              - generic [ref=e1512]: "Status: Applied"
+              - generic [ref=e1513]: "CV: CV-SIM1"
+              - generic [ref=e1514]: "Checklist: 0/0"
+              - generic [ref=e1515]: "Skill Match: 0%"
+          - listitem [ref=e1516]:
+            - 'button "Intern 2 H2 Status: Applied CV: - Checklist: 0/0 Skill Match: 0%" [ref=e1517] [cursor=pointer]':
+              - strong [ref=e1518]: Intern 2
+              - generic [ref=e1519]: H2
+              - generic [ref=e1520]: "Status: Applied"
+              - generic [ref=e1521]: "CV: -"
+              - generic [ref=e1522]: "Checklist: 0/0"
+              - generic [ref=e1523]: "Skill Match: 0%"
+      - button "Screening 1 +" [ref=e1525] [cursor=pointer]:
+        - heading "Screening" [level=3] [ref=e1526]
+        - generic [ref=e1527]: "1"
+        - generic [ref=e1528]: +
+      - button "Interview 2 +" [ref=e1530] [cursor=pointer]:
+        - heading "Interview" [level=3] [ref=e1531]
+        - generic [ref=e1532]: "2"
+        - generic [ref=e1533]: +
+      - button "Offer 4 +" [ref=e1535] [cursor=pointer]:
+        - heading "Offer" [level=3] [ref=e1536]
+        - generic [ref=e1537]: "4"
+        - generic [ref=e1538]: +
+      - button "Rejected 0 +" [ref=e1540] [cursor=pointer]:
+        - heading "Rejected" [level=3] [ref=e1541]
+        - generic [ref=e1542]: "0"
+        - generic [ref=e1543]: +
+      - button "Ghosted 1 +" [ref=e1545] [cursor=pointer]:
+        - heading "Ghosted" [level=3] [ref=e1546]
+        - generic [ref=e1547]: "1"
+        - generic [ref=e1548]: +
+    - generic [ref=e1549]:
+      - generic [ref=e1550]:
+        - heading "Ghosting Monitor" [level=3] [ref=e1551]
+        - paragraph [ref=e1552]: 4 lamaran rawan ghosting
+        - list [ref=e1553]:
+          - listitem [ref=e1554]:
+            - generic [ref=e1556]: Tech A — Frontend Intern
+            - generic [ref=e1557]: Ghosted
+            - generic [ref=e1558]: 0 hari tidak update
+          - listitem [ref=e1559]:
+            - generic [ref=e1561]: H2 — Intern 2
+            - generic [ref=e1562]: Applied
+            - generic [ref=e1563]: 15 hari tidak update
+          - listitem [ref=e1564]:
+            - generic [ref=e1566]: GH2 — Role GH2
+            - generic [ref=e1567]: Screening
+            - generic [ref=e1568]: 15 hari tidak update
+          - listitem [ref=e1569]:
+            - generic [ref=e1571]: SIM1 — Role SIM1
+            - generic [ref=e1572]: Applied
+            - generic [ref=e1573]: 15 hari tidak update
+      - generic [ref=e1574]:
+        - heading "Interview Conflict Monitor" [level=3] [ref=e1575]
+        - paragraph [ref=e1576]: D dan E memiliki jadwal interview yang bertabrakan.

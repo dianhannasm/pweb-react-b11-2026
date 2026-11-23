@@ -1,0 +1,744 @@
+- main [ref=e3]:
+  - navigation "Navigasi aplikasi" [ref=e4]:
+    - button "Beranda" [ref=e5] [cursor=pointer]
+    - button "Eksplorasi Lowongan" [ref=e6] [cursor=pointer]
+    - button "War Room Pipeline" [ref=e7] [cursor=pointer]
+    - button "Dashboard & Offer" [ref=e8] [cursor=pointer]
+  - generic [ref=e693]:
+    - generic [ref=e695]:
+      - heading "Eksplorasi Lowongan" [level=2] [ref=e696]
+      - paragraph [ref=e697]: Temukan lowongan yang cocok dengan skill Kapten.
+    - generic [ref=e698]:
+      - generic [ref=e700]:
+        - heading "Skill Kapten" [level=2] [ref=e701]
+        - paragraph [ref=e702]: Skill ini dipakai untuk menghitung Skill Match di lowongan.
+        - generic [ref=e703]:
+          - textbox "Tambah skill Kapten" [ref=e704]:
+            - /placeholder: Tambah skill baru...
+            - text: react
+          - button "Tambah Skill" [ref=e705] [cursor=pointer]
+        - list [ref=e706]:
+          - listitem [ref=e707]:
+            - generic [ref=e708]: React
+            - button "Hapus skill React" [ref=e709] [cursor=pointer]: ×
+          - listitem [ref=e710]:
+            - generic [ref=e711]: TypeScript
+            - button "Hapus skill TypeScript" [ref=e712] [cursor=pointer]: ×
+          - listitem [ref=e713]:
+            - generic [ref=e714]: Data Analyst
+            - button "Hapus skill Data Analyst" [ref=e715] [cursor=pointer]: ×
+      - generic [ref=e717]:
+        - heading "Tambah Lamaran Manual" [level=2] [ref=e718]
+        - generic [ref=e719]: Perusahaan
+        - textbox "Perusahaan" [ref=e720]:
+          - /placeholder: Nama perusahaan
+        - generic [ref=e721]: Posisi
+        - textbox "Posisi" [ref=e722]:
+          - /placeholder: "Contoh: Frontend Intern"
+        - generic [ref=e723]: Work Mode
+        - combobox "Work Mode" [ref=e724]:
+          - option "Remote" [selected]
+          - option "Hybrid"
+          - option "Onsite"
+        - generic [ref=e725]: Status awal
+        - combobox "Status awal" [ref=e726]:
+          - option "Wishlist" [selected]
+          - option "Sudah Dilamar"
+          - option "Screening"
+          - option "Interview"
+          - option "Offer"
+          - option "Rejected"
+          - option "Ghosted"
+        - generic [ref=e727]: Skill yang dibutuhkan
+        - textbox "Skill yang dibutuhkan" [ref=e728]:
+          - /placeholder: React, TypeScript, Git
+        - generic [ref=e729]: Pisahkan skill menggunakan koma.
+        - button "Tambah Lamaran" [ref=e730] [cursor=pointer]
+    - generic [ref=e731]:
+      - searchbox "Cari lowongan" [ref=e732]
+      - combobox "Filter kategori" [ref=e733]:
+        - option "Semua kategori" [selected]
+        - option "All others"
+        - option "Artificial Intelligence"
+        - option "Customer Service"
+        - option "Data and Analytics"
+        - option "Information Technology"
+        - option "Marketing"
+        - option "Sales"
+        - option "Software Development"
+        - option "Writing"
+      - generic [ref=e734] [cursor=pointer]:
+        - checkbox "Skill Match tertinggi" [ref=e735]
+        - text: Skill Match tertinggi
+    - generic [ref=e737]:
+      - generic [ref=e738]: "Sumber data: Remotive API"
+      - button "Gunakan Fallback Lokal" [ref=e739] [cursor=pointer]
+    - paragraph [ref=e740]: Menampilkan 16 lowongan
+    - generic [ref=e741]:
+      - article [ref=e742]:
+        - generic [ref=e743]:
+          - generic [ref=e744]:
+            - heading "Content Reviewer - United States" [level=3] [ref=e745]
+            - paragraph [ref=e746]: TELUS Digital
+          - generic [ref=e747]: 0% Match
+        - generic [ref=e748]:
+          - paragraph [ref=e749]:
+            - strong [ref=e750]: "Kategori:"
+            - text: All others
+          - paragraph [ref=e751]:
+            - strong [ref=e752]: "Lokasi:"
+            - text: USA
+          - paragraph [ref=e753]:
+            - strong [ref=e754]: "Gaji:"
+            - text: $14/hour
+        - generic [ref=e755]:
+          - paragraph [ref=e756]:
+            - strong [ref=e757]: "Skill cocok:"
+          - paragraph [ref=e758]: Belum ada skill yang cocok.
+        - generic [ref=e759]:
+          - paragraph [ref=e760]:
+            - strong [ref=e761]: "Missing skills:"
+          - generic [ref=e762]:
+            - generic [ref=e763]: android
+            - generic [ref=e764]: ios
+            - generic [ref=e765]: social media
+            - generic [ref=e766]: teaching
+            - generic [ref=e767]: AI/ML
+            - generic [ref=e768]: research
+            - generic [ref=e769]: responsive
+        - button "Simpan ke Wishlist" [ref=e770] [cursor=pointer]
+      - article [ref=e771]:
+        - generic [ref=e772]:
+          - generic [ref=e773]:
+            - heading "Tech Lead Full-Stack Rails Engineer" [level=3] [ref=e774]
+            - paragraph [ref=e775]: Mitre Media
+          - generic [ref=e776]: 4% Match
+        - generic [ref=e777]:
+          - paragraph [ref=e778]:
+            - strong [ref=e779]: "Kategori:"
+            - text: Software Development
+          - paragraph [ref=e780]:
+            - strong [ref=e781]: "Lokasi:"
+            - text: USA, Canada, USA timezones
+          - paragraph [ref=e782]:
+            - strong [ref=e783]: "Gaji:"
+            - text: $170k - $200k
+        - generic [ref=e784]:
+          - paragraph [ref=e785]:
+            - strong [ref=e786]: "Skill cocok:"
+          - generic [ref=e787]: react
+        - generic [ref=e789]:
+          - paragraph [ref=e790]:
+            - strong [ref=e791]: "Missing skills:"
+          - generic [ref=e792]:
+            - generic [ref=e793]: api
+            - generic [ref=e794]: CSS
+            - generic [ref=e1369]: docker
+            - generic [ref=e796]: elasticsearch
+            - generic [ref=e797]: fullstack
+            - generic [ref=e798]: html
+            - generic [ref=e799]: javascript
+            - generic [ref=e800]: kubernetes
+            - generic [ref=e801]: postgresql
+            - generic [ref=e802]: ror
+            - generic [ref=e803]: ruby/rails
+            - generic [ref=e804]: AI/ML
+            - generic [ref=e805]: CAD
+            - generic [ref=e806]: advertising
+            - generic [ref=e807]: Redis
+            - generic [ref=e808]: ES6
+            - generic [ref=e809]: web applications
+            - generic [ref=e810]: MySQL
+            - generic [ref=e811]: NLP
+            - generic [ref=e812]: fintech
+            - generic [ref=e813]: Micro services
+            - generic [ref=e814]: github
+            - generic [ref=e815]: system architecture
+        - button "Simpan ke Wishlist" [ref=e816] [cursor=pointer]
+      - article [ref=e817]:
+        - generic [ref=e818]:
+          - generic [ref=e819]:
+            - heading "Content Creator - YouTube" [level=3] [ref=e820]
+            - paragraph [ref=e821]: Metics Media
+          - generic [ref=e822]: 0% Match
+        - generic [ref=e823]:
+          - paragraph [ref=e824]:
+            - strong [ref=e825]: "Kategori:"
+            - text: Marketing
+          - paragraph [ref=e826]:
+            - strong [ref=e827]: "Lokasi:"
+            - text: USA, Canada
+          - paragraph [ref=e828]:
+            - strong [ref=e829]: "Gaji:"
+            - text: $85k - $155k
+        - generic [ref=e830]:
+          - paragraph [ref=e831]:
+            - strong [ref=e832]: "Skill cocok:"
+          - paragraph [ref=e833]: Belum ada skill yang cocok.
+        - generic [ref=e834]:
+          - paragraph [ref=e835]:
+            - strong [ref=e836]: "Missing skills:"
+          - generic [ref=e837]:
+            - generic [ref=e838]: ecommerce
+            - generic [ref=e839]: shopify
+            - generic [ref=e840]: video
+            - generic [ref=e841]: AI/ML
+            - generic [ref=e842]: research
+            - generic [ref=e843]: digital marketing
+            - generic [ref=e844]: youtube
+            - generic [ref=e845]: editing
+            - generic [ref=e846]: video editing
+        - button "Simpan ke Wishlist" [ref=e847] [cursor=pointer]
+      - article [ref=e848]:
+        - generic [ref=e849]:
+          - generic [ref=e850]:
+            - heading "Remote Office Assistant" [level=3] [ref=e851]
+            - paragraph [ref=e852]: Coalition Technologies
+          - generic [ref=e853]: 0% Match
+        - generic [ref=e854]:
+          - paragraph [ref=e855]:
+            - strong [ref=e856]: "Kategori:"
+            - text: Marketing
+          - paragraph [ref=e857]:
+            - strong [ref=e858]: "Lokasi:"
+            - text: Worldwide
+          - paragraph [ref=e859]:
+            - strong [ref=e860]: "Gaji:"
+            - text: $35,3k- $52k
+        - generic [ref=e861]:
+          - paragraph [ref=e862]:
+            - strong [ref=e863]: "Skill cocok:"
+          - paragraph [ref=e864]: Belum ada skill yang cocok.
+        - generic [ref=e865]:
+          - paragraph [ref=e866]:
+            - strong [ref=e867]: "Missing skills:"
+          - generic [ref=e868]:
+            - generic [ref=e869]: CSS
+            - generic [ref=e870]: excel
+            - generic [ref=e871]: frontend
+            - generic [ref=e872]: git
+            - generic [ref=e873]: html
+            - generic [ref=e874]: illustrator
+            - generic [ref=e875]: magento
+            - generic [ref=e876]: photoshop
+            - generic [ref=e877]: php
+            - generic [ref=e878]: shopify
+            - generic [ref=e879]: wordpress
+            - generic [ref=e880]: MySQL
+            - generic [ref=e881]: startup
+            - generic [ref=e882]: responsive
+            - generic [ref=e883]: themes
+            - generic [ref=e884]: bootstrap
+            - generic [ref=e885]: insurance
+            - generic [ref=e886]: jQuery
+            - generic [ref=e887]: Ajax
+        - button "Simpan ke Wishlist" [ref=e888] [cursor=pointer]
+      - article [ref=e889]:
+        - generic [ref=e890]:
+          - generic [ref=e891]:
+            - heading "Senior Data Engineer" [level=3] [ref=e892]
+            - paragraph [ref=e893]: Lemon.io
+          - generic [ref=e894]: 4% Match
+        - generic [ref=e895]:
+          - paragraph [ref=e896]:
+            - strong [ref=e897]: "Kategori:"
+            - text: Data and Analytics
+          - paragraph [ref=e898]:
+            - strong [ref=e899]: "Lokasi:"
+            - text: LATAM, Europe, USA, Canada, APAC
+          - paragraph [ref=e900]:
+            - strong [ref=e901]: "Gaji:"
+            - text: Tidak dicantumkan
+        - generic [ref=e902]:
+          - paragraph [ref=e903]:
+            - strong [ref=e904]: "Skill cocok:"
+          - generic [ref=e905]:
+            - generic [ref=e906]: react
+            - generic [ref=e907]: Typescript
+        - generic [ref=e908]:
+          - paragraph [ref=e909]:
+            - strong [ref=e910]: "Missing skills:"
+          - generic [ref=e911]:
+            - generic [ref=e912]: .Net
+            - generic [ref=e913]: android
+            - generic [ref=e914]: apache
+            - generic [ref=e915]: AWS
+            - generic [ref=e916]: azure
+            - generic [ref=e917]: C
+            - generic [ref=e918]: C#
+            - generic [ref=e919]: C++
+            - generic [ref=e920]: data science
+            - generic [ref=e921]: fullstack
+            - generic [ref=e922]: golang
+            - generic [ref=e923]: ios
+            - generic [ref=e924]: java
+            - generic [ref=e925]: javascript
+            - generic [ref=e926]: magento
+            - generic [ref=e927]: node.js
+            - generic [ref=e928]: php
+            - generic [ref=e929]: python
+            - generic [ref=e930]: ruby/rails
+            - generic [ref=e931]: scala
+            - generic [ref=e932]: shopify
+            - generic [ref=e933]: sql
+            - generic [ref=e934]: swift
+            - generic [ref=e935]: UI/UX
+            - generic [ref=e936]: wordpress
+            - generic [ref=e937]: blockchain
+            - generic [ref=e938]: AI/ML
+            - generic [ref=e939]: automation
+            - generic [ref=e940]: project management
+            - generic [ref=e941]: react native
+            - generic [ref=e942]: rust
+            - generic [ref=e943]: unity
+            - generic [ref=e944]: electron
+            - generic [ref=e945]: spring
+            - generic [ref=e946]: data analysis
+            - generic [ref=e947]: laravel
+            - generic [ref=e948]: Ethereum
+            - generic [ref=e949]: graphic design
+            - generic [ref=e950]: angular
+            - generic [ref=e951]: GCP
+            - generic [ref=e952]: firebase
+            - generic [ref=e953]: Snowflake
+            - generic [ref=e954]: Site Reliability
+            - generic [ref=e955]: Symfony
+            - generic [ref=e956]: next.js
+            - generic [ref=e957]: infrastructure
+            - generic [ref=e958]: flutter
+        - button "Simpan ke Wishlist" [ref=e959] [cursor=pointer]
+      - article [ref=e960]:
+        - generic [ref=e961]:
+          - generic [ref=e962]:
+            - heading "Customer Service Representative" [level=3] [ref=e963]
+            - paragraph [ref=e964]: ShyftOff
+          - generic [ref=e965]: 0% Match
+        - generic [ref=e966]:
+          - paragraph [ref=e967]:
+            - strong [ref=e968]: "Kategori:"
+            - text: Customer Service
+          - paragraph [ref=e969]:
+            - strong [ref=e970]: "Lokasi:"
+            - text: USA
+          - paragraph [ref=e971]:
+            - strong [ref=e972]: "Gaji:"
+            - text: $14 - $20/hour
+        - generic [ref=e973]:
+          - paragraph [ref=e974]:
+            - strong [ref=e975]: "Skill cocok:"
+          - paragraph [ref=e976]: Belum ada skill yang cocok.
+        - generic [ref=e977]:
+          - paragraph [ref=e978]:
+            - strong [ref=e979]: "Missing skills:"
+          - generic [ref=e980]:
+            - generic [ref=e981]: video
+            - generic [ref=e982]: healthcare
+            - generic [ref=e983]: retail
+            - generic [ref=e984]: onboarding
+            - generic [ref=e985]: financial services
+            - generic [ref=e986]: insurance
+        - button "Simpan ke Wishlist" [ref=e987] [cursor=pointer]
+      - article [ref=e988]:
+        - generic [ref=e989]:
+          - generic [ref=e990]:
+            - heading "Senior React Full-stack Developer" [level=3] [ref=e991]
+            - paragraph [ref=e992]: Lemon.io
+          - generic [ref=e993]: 4% Match
+        - generic [ref=e994]:
+          - paragraph [ref=e995]:
+            - strong [ref=e996]: "Kategori:"
+            - text: Software Development
+          - paragraph [ref=e997]:
+            - strong [ref=e998]: "Lokasi:"
+            - text: LATAM, Europe, USA, Canada, APAC
+          - paragraph [ref=e999]:
+            - strong [ref=e1000]: "Gaji:"
+            - text: Tidak dicantumkan
+        - generic [ref=e1001]:
+          - paragraph [ref=e1002]:
+            - strong [ref=e1003]: "Skill cocok:"
+          - generic [ref=e1004]:
+            - generic [ref=e1005]: react
+            - generic [ref=e1006]: Typescript
+        - generic [ref=e1007]:
+          - paragraph [ref=e1008]:
+            - strong [ref=e1009]: "Missing skills:"
+          - generic [ref=e1010]:
+            - generic [ref=e1011]: .Net
+            - generic [ref=e1012]: android
+            - generic [ref=e1013]: AWS
+            - generic [ref=e1014]: azure
+            - generic [ref=e1015]: C
+            - generic [ref=e1016]: C#
+            - generic [ref=e1017]: C++
+            - generic [ref=e1018]: data science
+            - generic [ref=e1019]: fullstack
+            - generic [ref=e1020]: golang
+            - generic [ref=e1021]: ios
+            - generic [ref=e1022]: java
+            - generic [ref=e1023]: javascript
+            - generic [ref=e1024]: magento
+            - generic [ref=e1025]: node.js
+            - generic [ref=e1026]: php
+            - generic [ref=e1027]: python
+            - generic [ref=e1028]: react js
+            - generic [ref=e1029]: ruby/rails
+            - generic [ref=e1030]: scala
+            - generic [ref=e1031]: shopify
+            - generic [ref=e1032]: swift
+            - generic [ref=e1033]: UI/UX
+            - generic [ref=e1034]: wordpress
+            - generic [ref=e1035]: blockchain
+            - generic [ref=e1036]: AI/ML
+            - generic [ref=e1037]: automation
+            - generic [ref=e1038]: project management
+            - generic [ref=e1039]: react native
+            - generic [ref=e1040]: rust
+            - generic [ref=e1041]: unity
+            - generic [ref=e1042]: electron
+            - generic [ref=e1043]: spring
+            - generic [ref=e1044]: laravel
+            - generic [ref=e1045]: Ethereum
+            - generic [ref=e1046]: graphic design
+            - generic [ref=e1047]: angular
+            - generic [ref=e1048]: GCP
+            - generic [ref=e1049]: firebase
+            - generic [ref=e1050]: data engineering
+            - generic [ref=e1051]: Site Reliability
+            - generic [ref=e1052]: Symfony
+            - generic [ref=e1053]: next.js
+            - generic [ref=e1054]: flutter
+        - button "Simpan ke Wishlist" [ref=e1055] [cursor=pointer]
+      - article [ref=e1056]:
+        - generic [ref=e1057]:
+          - generic [ref=e1058]:
+            - heading "Inside Sales Contractor" [level=3] [ref=e1059]
+            - paragraph [ref=e1060]: Credit Wellness, LLC
+          - generic [ref=e1061]: 0% Match
+        - generic [ref=e1062]:
+          - paragraph [ref=e1063]:
+            - strong [ref=e1064]: "Kategori:"
+            - text: Sales
+          - paragraph [ref=e1065]:
+            - strong [ref=e1066]: "Lokasi:"
+            - text: Worldwide
+          - paragraph [ref=e1067]:
+            - strong [ref=e1068]: "Gaji:"
+            - text: OTE $25k - $35k
+        - generic [ref=e1069]:
+          - paragraph [ref=e1070]:
+            - strong [ref=e1071]: "Skill cocok:"
+          - paragraph [ref=e1072]: Belum ada skill yang cocok.
+        - generic [ref=e1073]:
+          - paragraph [ref=e1074]:
+            - strong [ref=e1075]: "Missing skills:"
+          - generic [ref=e1076]:
+            - generic [ref=e1077]: CRM
+            - generic [ref=e1078]: google sheets
+            - generic [ref=e1079]: financial services
+            - generic [ref=e1080]: Inside Sales
+        - button "Simpan ke Wishlist" [ref=e1081] [cursor=pointer]
+      - article [ref=e1082]:
+        - generic [ref=e1083]:
+          - generic [ref=e1084]:
+            - heading "Tier III Service Desk Engineer" [level=3] [ref=e1085]
+            - paragraph [ref=e1086]: Unio Digital
+          - generic [ref=e1087]: 0% Match
+        - generic [ref=e1088]:
+          - paragraph [ref=e1089]:
+            - strong [ref=e1090]: "Kategori:"
+            - text: Information Technology
+          - paragraph [ref=e1091]:
+            - strong [ref=e1092]: "Lokasi:"
+            - text: Worldwide
+          - paragraph [ref=e1093]:
+            - strong [ref=e1094]: "Gaji:"
+            - text: Tidak dicantumkan
+        - generic [ref=e1095]:
+          - paragraph [ref=e1096]:
+            - strong [ref=e1097]: "Skill cocok:"
+          - paragraph [ref=e1098]: Belum ada skill yang cocok.
+        - generic [ref=e1099]:
+          - paragraph [ref=e1100]:
+            - strong [ref=e1101]: "Missing skills:"
+          - generic [ref=e1102]:
+            - generic [ref=e1103]: azure
+            - generic [ref=e1104]: cisco
+            - generic [ref=e1105]: security
+            - generic [ref=e1106]: video
+            - generic [ref=e1107]: documentation
+            - generic [ref=e1108]: hardware
+            - generic [ref=e1109]: helpdesk
+            - generic [ref=e1110]: onboarding
+            - generic [ref=e1111]: MSP
+            - generic [ref=e1112]: ticketing
+            - generic [ref=e1113]: Microsoft 365
+            - generic [ref=e1114]: IT systems
+        - button "Simpan ke Wishlist" [ref=e1115] [cursor=pointer]
+      - article [ref=e1116]:
+        - generic [ref=e1117]:
+          - generic [ref=e1118]:
+            - heading "US Remote Patient Care Advocate (Customer Service)" [level=3] [ref=e1119]
+            - paragraph [ref=e1120]: VXI Global Solutions
+          - generic [ref=e1121]: 0% Match
+        - generic [ref=e1122]:
+          - paragraph [ref=e1123]:
+            - strong [ref=e1124]: "Kategori:"
+            - text: Customer Service
+          - paragraph [ref=e1125]:
+            - strong [ref=e1126]: "Lokasi:"
+            - text: USA
+          - paragraph [ref=e1127]:
+            - strong [ref=e1128]: "Gaji:"
+            - text: $25k - $35k
+        - generic [ref=e1129]:
+          - paragraph [ref=e1130]:
+            - strong [ref=e1131]: "Skill cocok:"
+          - paragraph [ref=e1132]: Belum ada skill yang cocok.
+        - generic [ref=e1133]:
+          - paragraph [ref=e1134]:
+            - strong [ref=e1135]: "Missing skills:"
+          - generic [ref=e1136]:
+            - generic [ref=e1137]: healthcare
+            - generic [ref=e1138]: insurance
+        - button "Simpan ke Wishlist" [ref=e1139] [cursor=pointer]
+      - article [ref=e1140]:
+        - generic [ref=e1141]:
+          - generic [ref=e1142]:
+            - heading "Freelance Writer" [level=3] [ref=e1143]
+            - paragraph [ref=e1144]: IAPWE
+          - generic [ref=e1145]: 0% Match
+        - generic [ref=e1146]:
+          - paragraph [ref=e1147]:
+            - strong [ref=e1148]: "Kategori:"
+            - text: Writing
+          - paragraph [ref=e1149]:
+            - strong [ref=e1150]: "Lokasi:"
+            - text: Worldwide
+          - paragraph [ref=e1151]:
+            - strong [ref=e1152]: "Gaji:"
+            - text: $50-$75 /hour
+        - generic [ref=e1153]:
+          - paragraph [ref=e1154]:
+            - strong [ref=e1155]: "Skill cocok:"
+          - paragraph [ref=e1156]: Belum ada skill yang cocok.
+        - generic [ref=e1157]:
+          - paragraph [ref=e1158]:
+            - strong [ref=e1159]: "Missing skills:"
+          - generic [ref=e1160]: REST
+        - button "Simpan ke Wishlist" [ref=e1162] [cursor=pointer]
+      - article [ref=e1163]:
+        - generic [ref=e1164]:
+          - generic [ref=e1165]:
+            - heading "Content Reviewer - United States" [level=3] [ref=e1166]
+            - paragraph [ref=e1167]: TELUS Digital
+          - generic [ref=e1168]: 0% Match
+        - generic [ref=e1169]:
+          - paragraph [ref=e1170]:
+            - strong [ref=e1171]: "Kategori:"
+            - text: All others
+          - paragraph [ref=e1172]:
+            - strong [ref=e1173]: "Lokasi:"
+            - text: USA
+          - paragraph [ref=e1174]:
+            - strong [ref=e1175]: "Gaji:"
+            - text: $14/hour
+        - generic [ref=e1176]:
+          - paragraph [ref=e1177]:
+            - strong [ref=e1178]: "Skill cocok:"
+          - paragraph [ref=e1179]: Belum ada skill yang cocok.
+        - generic [ref=e1180]:
+          - paragraph [ref=e1181]:
+            - strong [ref=e1182]: "Missing skills:"
+          - generic [ref=e1183]:
+            - generic [ref=e1184]: android
+            - generic [ref=e1185]: ios
+            - generic [ref=e1186]: social media
+            - generic [ref=e1187]: AI/ML
+        - button "Simpan ke Wishlist" [ref=e1188] [cursor=pointer]
+      - article [ref=e1189]:
+        - generic [ref=e1190]:
+          - generic [ref=e1191]:
+            - heading "Freelance Copywriter" [level=3] [ref=e1192]
+            - paragraph [ref=e1193]: Coalition Technologies
+          - generic [ref=e1194]: 0% Match
+        - generic [ref=e1195]:
+          - paragraph [ref=e1196]:
+            - strong [ref=e1197]: "Kategori:"
+            - text: Writing
+          - paragraph [ref=e1198]:
+            - strong [ref=e1199]: "Lokasi:"
+            - text: Worldwide
+          - paragraph [ref=e1200]:
+            - strong [ref=e1201]: "Gaji:"
+            - text: $20k -$35k
+        - generic [ref=e1202]:
+          - paragraph [ref=e1203]:
+            - strong [ref=e1204]: "Skill cocok:"
+          - paragraph [ref=e1205]: Belum ada skill yang cocok.
+        - generic [ref=e1206]:
+          - paragraph [ref=e1207]:
+            - strong [ref=e1208]: "Missing skills:"
+          - generic [ref=e1209]:
+            - generic [ref=e1210]: accounting
+            - generic [ref=e1211]: excel
+            - generic [ref=e1212]: research
+            - generic [ref=e1213]: data analysis
+            - generic [ref=e1214]: bookkeeping
+            - generic [ref=e1215]: google sheets
+            - generic [ref=e1216]: quickbooks
+            - generic [ref=e1217]: data entry
+            - generic [ref=e1218]: insurance
+            - generic [ref=e1219]: G Suite
+        - button "Simpan ke Wishlist" [ref=e1220] [cursor=pointer]
+      - article [ref=e1221]:
+        - generic [ref=e1222]:
+          - generic [ref=e1223]:
+            - heading "Full-Stack Developer" [level=3] [ref=e1224]
+            - paragraph [ref=e1225]: Fluence International, Inc.
+          - generic [ref=e1226]: 7% Match
+        - generic [ref=e1227]:
+          - paragraph [ref=e1228]:
+            - strong [ref=e1229]: "Kategori:"
+            - text: Software Development
+          - paragraph [ref=e1230]:
+            - strong [ref=e1231]: "Lokasi:"
+            - text: Worldwide
+          - paragraph [ref=e1232]:
+            - strong [ref=e1233]: "Gaji:"
+            - text: $3.5k–$5k/month
+        - generic [ref=e1234]:
+          - paragraph [ref=e1235]:
+            - strong [ref=e1236]: "Skill cocok:"
+          - generic [ref=e1237]:
+            - generic [ref=e1238]: react
+            - generic [ref=e1239]: Typescript
+        - generic [ref=e1240]:
+          - paragraph [ref=e1241]:
+            - strong [ref=e1242]: "Missing skills:"
+          - generic [ref=e1243]:
+            - generic [ref=e1244]: admin
+            - generic [ref=e1245]: api
+            - generic [ref=e1246]: AWS
+            - generic [ref=e1247]: backend
+            - generic [ref=e1248]: cloud
+            - generic [ref=e1370]: docker
+            - generic [ref=e1250]: frontend
+            - generic [ref=e1251]: fullstack
+            - generic [ref=e1252]: javascript
+            - generic [ref=e1253]: security
+            - generic [ref=e1254]: UI/UX
+            - generic [ref=e1255]: AI/ML
+            - generic [ref=e1256]: automation
+            - generic [ref=e1257]: documentation
+            - generic [ref=e1258]: healthcare
+            - generic [ref=e1259]: web applications
+            - generic [ref=e1260]: SOLID
+            - generic [ref=e1261]: JSON
+            - generic [ref=e1262]: serverless
+            - generic [ref=e1263]: next.js
+            - generic [ref=e1264]: github
+            - generic [ref=e1265]: REST
+            - generic [ref=e1266]: mental health
+            - generic [ref=e1267]: BaaS
+            - generic [ref=e1268]: datadog
+        - button "Simpan ke Wishlist" [ref=e1269] [cursor=pointer]
+      - article [ref=e1270]:
+        - generic [ref=e1271]:
+          - generic [ref=e1272]:
+            - heading "Senior Back-end Developer" [level=3] [ref=e1273]
+            - paragraph [ref=e1274]: Lemon.io
+          - generic [ref=e1275]: 4% Match
+        - generic [ref=e1276]:
+          - paragraph [ref=e1277]:
+            - strong [ref=e1278]: "Kategori:"
+            - text: Software Development
+          - paragraph [ref=e1279]:
+            - strong [ref=e1280]: "Lokasi:"
+            - text: Europe, USA, Canada, Australia, Singapore, Mexico, Saudi Arabia
+          - paragraph [ref=e1281]:
+            - strong [ref=e1282]: "Gaji:"
+            - text: Tidak dicantumkan
+        - generic [ref=e1283]:
+          - paragraph [ref=e1284]:
+            - strong [ref=e1285]: "Skill cocok:"
+          - generic [ref=e1286]:
+            - generic [ref=e1287]: react
+            - generic [ref=e1288]: Typescript
+        - generic [ref=e1289]:
+          - paragraph [ref=e1290]:
+            - strong [ref=e1291]: "Missing skills:"
+          - generic [ref=e1292]:
+            - generic [ref=e1293]: .Net
+            - generic [ref=e1294]: android
+            - generic [ref=e1295]: C
+            - generic [ref=e1296]: C#
+            - generic [ref=e1297]: C++
+            - generic [ref=e1298]: cloud
+            - generic [ref=e1299]: data science
+            - generic [ref=e1300]: golang
+            - generic [ref=e1301]: ios
+            - generic [ref=e1302]: java
+            - generic [ref=e1303]: javascript
+            - generic [ref=e1304]: kubernetes
+            - generic [ref=e1305]: node.js
+            - generic [ref=e1306]: php
+            - generic [ref=e1307]: python
+            - generic [ref=e1308]: ruby/rails
+            - generic [ref=e1309]: scala
+            - generic [ref=e1310]: shopify
+            - generic [ref=e1311]: swift
+            - generic [ref=e1312]: UI/UX
+            - generic [ref=e1313]: wordpress
+            - generic [ref=e1314]: blockchain
+            - generic [ref=e1315]: AI/ML
+            - generic [ref=e1316]: automation
+            - generic [ref=e1317]: project management
+            - generic [ref=e1318]: react native
+            - generic [ref=e1319]: rust
+            - generic [ref=e1320]: unity
+            - generic [ref=e1321]: electron
+            - generic [ref=e1322]: spring
+            - generic [ref=e1323]: laravel
+            - generic [ref=e1324]: Ethereum
+            - generic [ref=e1325]: graphic design
+            - generic [ref=e1326]: distributed systems
+            - generic [ref=e1327]: angular
+            - generic [ref=e1328]: firebase
+            - generic [ref=e1329]: data engineering
+            - generic [ref=e1330]: Site Reliability
+            - generic [ref=e1331]: Symfony
+            - generic [ref=e1332]: Linux/Unix
+            - generic [ref=e1333]: next.js
+            - generic [ref=e1334]: infrastructure
+            - generic [ref=e1335]: flutter
+            - generic [ref=e1336]: GPU
+        - button "Simpan ke Wishlist" [ref=e1337] [cursor=pointer]
+      - article [ref=e1338]:
+        - generic [ref=e1339]:
+          - generic [ref=e1340]:
+            - heading "AI Trainer - Video Annotation" [level=3] [ref=e1341]
+            - paragraph [ref=e1342]: iMerit Technology
+          - generic [ref=e1343]: 0% Match
+        - generic [ref=e1344]:
+          - paragraph [ref=e1345]:
+            - strong [ref=e1346]: "Kategori:"
+            - text: Artificial Intelligence
+          - paragraph [ref=e1347]:
+            - strong [ref=e1348]: "Lokasi:"
+            - text: Worldwide
+          - paragraph [ref=e1349]:
+            - strong [ref=e1350]: "Gaji:"
+            - text: 70K-80K
+        - generic [ref=e1351]:
+          - paragraph [ref=e1352]:
+            - strong [ref=e1353]: "Skill cocok:"
+          - paragraph [ref=e1354]: Belum ada skill yang cocok.
+        - generic [ref=e1355]:
+          - paragraph [ref=e1356]:
+            - strong [ref=e1357]: "Missing skills:"
+          - generic [ref=e1358]:
+            - generic [ref=e1359]: video
+            - generic [ref=e1360]: AI/ML
+            - generic [ref=e1361]: robotics
+        - button "Simpan ke Wishlist" [ref=e1362] [cursor=pointer]

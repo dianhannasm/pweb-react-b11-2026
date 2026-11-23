@@ -3,19 +3,9 @@ import type { JobListing } from "../types/job";
 import { fetchJobs } from "../services/jobService";
 import { useDebounce } from "../hooks/useDebounce";
 import { calculateSkillMatch } from "../utils/skillMatch";
+import { KaptenSkillsEditor } from "./KaptenSkillsEditor";
+import { JobForm, type ManualApplicationData } from "./JobForm";
 import { JobCard } from "./JobCard";
-
-function isAbortError(err: unknown): boolean {
-  if (typeof err !== "object" || err === null) {
-    return false;
-  }
-
-  if ("name" in err) {
-    return err.name === "AbortError";
-  }
-
-  return false;
-}
 
 interface SavedApplication {
   company: string;
@@ -26,6 +16,8 @@ interface JobExplorerProps {
   kaptenSkills: string[];
   applications: SavedApplication[];
   onSaveJob: (job: JobListing) => void;
+  onAddApplication: (data: ManualApplicationData) => void;
+  onSkillsChange: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 type JobSource = "remote" | "local";
@@ -34,6 +26,8 @@ export function JobExplorer({
   kaptenSkills,
   applications,
   onSaveJob,
+  onAddApplication,
+  onSkillsChange,
 }: JobExplorerProps) {
   const [jobs, setJobs] = useState<JobListing[]>([]);
   const [source, setSource] = useState<JobSource>("remote");
@@ -128,9 +122,9 @@ export function JobExplorer({
     return applications.some(
       (application) =>
         application.company.trim().toLowerCase() ===
-          job.company_name.trim().toLowerCase() &&
+        job.company_name.trim().toLowerCase() &&
         application.role.trim().toLowerCase() ===
-          job.title.trim().toLowerCase(),
+        job.title.trim().toLowerCase(),
     );
   }
 
@@ -146,10 +140,22 @@ export function JobExplorer({
     <section className="job-explorer">
       <header className="explorer-heading">
         <div>
-          <h2>Eksplorasi Lowongan</h2>
+          <h2 className="page-title">Eksplorasi Lowongan</h2>
           <p>Temukan lowongan yang cocok dengan skill Kapten.</p>
         </div>
       </header>
+
+      <div className="explorer-two-col">
+        <div className="card skill-card">
+          <KaptenSkillsEditor
+            skills={kaptenSkills}
+            onChange={onSkillsChange}
+          />
+        </div>
+        <div className="card application-card">
+          <JobForm applications={applications} onSubmit={onAddApplication} />
+        </div>
+      </div>
 
       <div className="explorer-controls">
         <input
@@ -186,24 +192,24 @@ export function JobExplorer({
       </div>
 
       <div className="source-row">
-      <div className="source-controls">
-        <span>
-          Sumber data: {source === "remote" ? "Remotive API" : "Fallback lokal"}
-        </span>
+        <div className="source-controls">
+          <span>
+            Sumber data: {source === "remote" ? "Remotive API" : "Fallback lokal"}
+          </span>
 
-        {source === "remote" ? (
-          <button type="button" onClick={useLocalFallback}>
-            Gunakan Fallback Lokal
-          </button>
-        ) : (
-          <button
-            type="button"
-            onClick={() => setSource("remote")}
-          >
-            Gunakan Remotive API
-          </button>
-        )}
-      </div>
+          {source === "remote" ? (
+            <button type="button" onClick={useLocalFallback}>
+              Gunakan Fallback Lokal
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setSource("remote")}
+            >
+              Gunakan Remotive API
+            </button>
+          )}
+        </div>
       </div>
 
       {loading && (
@@ -253,4 +259,12 @@ export function JobExplorer({
       )}
     </section>
   );
+}
+
+function isAbortError(err: unknown): boolean {
+  if (typeof err !== "object" || err === null) return false;
+  if ("name" in err) {
+    return err.name === "AbortError";
+  }
+  return false;
 }

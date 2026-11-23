@@ -1,0 +1,120 @@
+- main [ref=e3]:
+  - navigation "Navigasi aplikasi" [ref=e4]:
+    - button "Beranda" [ref=e5] [cursor=pointer]
+    - button "Eksplorasi Lowongan" [ref=e6] [cursor=pointer]
+    - button "War Room Pipeline" [ref=e7] [cursor=pointer]
+    - button "Dashboard & Offer" [active] [ref=e8] [cursor=pointer]
+  - region "Dashboard statistik dan offer" [ref=e1672]:
+    - region "Statistik lamaran" [ref=e1673]:
+      - generic [ref=e1674]:
+        - article [ref=e1675]:
+          - generic [ref=e1676]: Total Lamaran
+          - strong [ref=e1677]: "10"
+          - generic [ref=e1678]: 6 aktif di pipeline
+        - article [ref=e1679]:
+          - generic [ref=e1680]: Response Rate
+          - strong [ref=e1681]: 70%
+          - generic [ref=e1682]: 7 dari 10 diproses
+        - article [ref=e1683]:
+          - generic [ref=e1684]: Interview Rate
+          - strong [ref=e1685]: 60%
+          - generic [ref=e1686]: 6 masuk wawancara
+        - article [ref=e1687]:
+          - generic [ref=e1688]: Rawan Ghosting
+          - strong [ref=e1689]: "4"
+          - generic [ref=e1690]: "> 14 hari tanpa kabar"
+        - article [ref=e1691]:
+          - generic [ref=e1692]: Total Offer
+          - strong [ref=e1693]: "4"
+          - generic [ref=e1694]: Siap dibandingkan
+    - region "Bandingkan Offer Magang" [ref=e1695]:
+      - generic [ref=e1696]:
+        - generic [ref=e1697]:
+          - heading "Bandingkan Offer Magang" [level=2] [ref=e1698]
+          - paragraph [ref=e1699]: "Bobot penilaian: Uang Saku 50% + Mode Kerja 25% + Kecocokan Skill 25%"
+        - generic [ref=e1700]:
+          - combobox "Pilih Offer A" [ref=e1701] [cursor=pointer]:
+            - 'option "Offer A: H1" [selected]'
+            - 'option "Offer A: F"'
+            - 'option "Offer A: G"'
+            - 'option "Offer A: S1"'
+          - generic [ref=e1702]: vs
+          - combobox "Pilih Offer B" [ref=e1703] [cursor=pointer]:
+            - 'option "Offer B: H1"'
+            - 'option "Offer B: F" [selected]'
+            - 'option "Offer B: G"'
+            - 'option "Offer B: S1"'
+      - generic "Peringkat semua offer" [ref=e1704]:
+        - generic [ref=e1705]:
+          - generic [ref=e1706]:
+            - strong [ref=e1707]: Peringkat Semua Offer (4)
+            - paragraph [ref=e1708]: Urutan otomatis dari skor berbobot tertinggi untuk memudahkan pilihan.
+          - button "Bandingkan Top 2" [ref=e1709] [cursor=pointer]
+        - generic [ref=e1710]:
+          - generic [ref=e1711]:
+            - generic [ref=e1712]: "#1"
+            - generic [ref=e1713]:
+              - strong [ref=e1714]: F
+              - generic [ref=e1715]: Cloud Engineer
+            - generic [ref=e1716]: "75.0"
+          - generic [ref=e1717]:
+            - generic [ref=e1718]: "#2"
+            - generic [ref=e1719]:
+              - strong [ref=e1720]: G
+              - generic [ref=e1721]: Full Stack Intern
+            - generic [ref=e1722]: "70.8"
+          - generic [ref=e1723]:
+            - generic [ref=e1724]: "#3"
+            - generic [ref=e1725]:
+              - strong [ref=e1726]: H1
+              - generic [ref=e1727]: Intern
+            - generic [ref=e1728]: "52.3"
+          - generic [ref=e1729]:
+            - generic [ref=e1730]: "#4"
+            - generic [ref=e1731]:
+              - strong [ref=e1732]: S1
+              - generic [ref=e1733]: Dev S1
+            - generic [ref=e1734]: "52.3"
+      - generic [ref=e1735]:
+        - article [ref=e1736]:
+          - generic [ref=e1738]:
+            - heading "H1" [level=3] [ref=e1739]
+            - paragraph [ref=e1740]: Intern
+          - generic [ref=e1741]:
+            - generic [ref=e1742]:
+              - generic [ref=e1743]: Uang Saku / Bulan
+              - strong [ref=e1744]: Rp 3.000.001
+              - generic [ref=e1745]: 27.3 / 50
+            - generic [ref=e1746]:
+              - generic [ref=e1747]: Mode Kerja
+              - strong [ref=e1748]: Remote (100)
+              - generic [ref=e1749]: 25.0 / 25
+            - generic [ref=e1750]:
+              - generic [ref=e1751]: Kecocokan Skill
+              - strong [ref=e1752]: 0% (0 dari 0 skill)
+              - generic [ref=e1753]: 0.0 / 25
+          - generic [ref=e1754]:
+            - generic [ref=e1755]: TOTAL SKOR BERBOBOT
+            - strong [ref=e1756]: "52.3"
+        - article [ref=e1757]:
+          - generic [ref=e1758]:
+            - generic [ref=e1759]:
+              - heading "F" [level=3] [ref=e1760]
+              - paragraph [ref=e1761]: Cloud Engineer
+            - generic [ref=e1762]: Rekomendasi Terbaik
+          - generic [ref=e1763]:
+            - generic [ref=e1764]:
+              - generic [ref=e1765]: Uang Saku / Bulan
+              - strong [ref=e1766]: Rp 5.500.001
+              - generic [ref=e1767]: 50.0 / 50
+            - generic [ref=e1768]:
+              - generic [ref=e1769]: Mode Kerja
+              - strong [ref=e1770]: Remote (100)
+              - generic [ref=e1771]: 25.0 / 25
+            - generic [ref=e1772]:
+              - generic [ref=e1773]: Kecocokan Skill
+              - strong [ref=e1774]: 0% (0 dari 2 skill)
+              - generic [ref=e1775]: 0.0 / 25
+          - generic [ref=e1776]:
+            - generic [ref=e1777]: TOTAL SKOR BERBOBOT
+            - strong [ref=e1778]: "75.0"

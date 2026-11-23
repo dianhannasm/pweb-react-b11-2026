@@ -1,12 +1,21 @@
 #root {
   width: 100%;
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 40px 28px 64px;
+  padding: 0;
 }
 
 main {
   width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 28px 28px 48px;
+}
+
+.page-title {
+  margin: 0 0 16px;
+  color: #f8fafc;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 main > h1 {
@@ -32,14 +41,9 @@ main > p {
   flex-direction: column;
   gap: 12px;
   width: 100%;
-  max-width: 620px;
-  margin: 0 auto 48px;
-  padding: 28px;
+  margin: 0;
+  padding: 0;
   color: #e2e8f0;
-  background: #111c31;
-  border: 1px solid #263650;
-  border-radius: 20px;
-  box-shadow: 0 20px 50px rgb(0 0 0 / 20%);
 }
 
 .job-form h2 {
@@ -114,12 +118,6 @@ main > p {
   margin: 0 auto;
 }
 
-.job-explorer h2 {
-  margin: 0 0 10px;
-  color: #f8fafc;
-  font-size: 1.8rem;
-}
-
 .job-explorer p {
   color: #94a3b8;
 }
@@ -172,6 +170,30 @@ main > p {
   background: #1d4ed8;
 }
 
+/* Skill Kapten — hapus icon terlihat boxed/bordered */
+.job-explorer .kapten-skill-remove,
+.job-explorer .kapten-skill-remove:hover {
+  appearance: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.job-explorer .kapten-skill-remove:hover {
+  color: #fecaca;
+}
+
 .job-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -188,7 +210,7 @@ main > p {
   min-width: 0;
   padding: 24px;
   color: #e2e8f0;
-  background: linear-gradient(145deg, #162238, #111a2c);
+  background: #121d30;
   border: 1px solid #293950;
   border-radius: 18px;
   box-shadow: 0 12px 30px rgb(0 0 0 / 12%);
@@ -376,34 +398,61 @@ main > p {
   }
 }
 
-/* Navigasi Tab */
+/* Navbar */
 
-.tab-nav {
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
   display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 32px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 56px;
+  padding: 0 32px;
+  background: #121d30;
+  border-bottom: 1px solid #334155;
 }
 
-.tab-button {
-  padding: 11px 20px;
-  color: #cbd5e1;
-  background: #111c31;
-  border: 1px solid #263650;
-  border-radius: 10px;
-  font-weight: 600;
-  transition: background 0.2s, border-color 0.2s, color 0.2s;
-}
-
-.tab-button:hover {
-  border-color: #3b82f6;
+.top-nav-brand {
+  padding: 8px 0;
   color: #f8fafc;
+  font-size: 1.05rem;
+  font-weight: 800;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
-.tab-button.active {
-  color: #ffffff;
-  background: #2563eb;
-  border-color: #2563eb;
+.top-nav-brand.active {
+  text-decoration: 2px underline #3b82f6;
+}
+
+.top-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.top-nav-link {
+  padding: 8px 14px;
+  color: #cbd5e1;
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+}
+
+.top-nav-link:hover {
+  color: #f8fafc;
+  background: rgb(59 130 246 / 8%);
+}
+
+.top-nav-link.active {
+  color: #f8fafc;
+  text-decoration: 2px underline #3b82f6;
 }
 
 /* Dashboard & Statistik (Orang 3) */
@@ -630,7 +679,7 @@ main > p {
   flex-direction: column;
   gap: 16px;
   padding: 22px;
-  background: linear-gradient(145deg, #162238, #111a2c);
+  background: #121d30;
   border: 1px solid #293950;
   border-radius: 16px;
 }
@@ -764,29 +813,27 @@ main > p {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  margin-top: 28px;
 }
 
 .pipeline-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
 }
 
-.pipeline-header h2 {
+.pipeline-header-main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.pipeline-header .page-title {
   margin: 0 0 6px;
-  color: #f8fafc;
 }
 
 .pipeline-header p {
   margin: 0;
   color: #94a3b8;
-}
-
-.pipeline-total {
-  color: #60a5fa;
-  font-weight: 700;
 }
 
 .pipeline-summary {
@@ -817,36 +864,57 @@ main > p {
 
 .pipeline-board {
   display: grid;
-  grid-template-columns: repeat(7, minmax(180px, 1fr));
-  gap: 12px;
-  overflow-x: auto;
-  padding-bottom: 12px;
+  grid-template-columns: repeat(7, minmax(120px, 1fr));
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .pipeline-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .pipeline-board {
+    grid-template-columns: 1fr;
+  }
 }
 
 .pipeline-column {
-  min-height: 180px;
-  padding: 14px;
+  min-height: 0;
+  padding: 8px 10px;
   background: #0b1426;
   border: 1px solid #263650;
-  border-radius: 12px;
+  border-radius: 8px;
+}
+
+.pipeline-column.open {
+  border-color: #3b82f6;
 }
 
 .pipeline-column-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 14px;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.pipeline-column-header:hover h3 {
+  color: #f8fafc;
 }
 
 .pipeline-column-header h3 {
   margin: 0;
   color: #e2e8f0;
-  font-size: 14px;
+  font-size: 11px;
 }
 
 .pipeline-column-header span {
   color: #60a5fa;
   font-weight: 700;
+  font-size: 11px;
 }
 
 .pipeline-empty {
@@ -1046,12 +1114,6 @@ main > p {
   letter-spacing: 0.1px;
 }
 
-.job-form {
-  background: #121d30;
-  border-color: #263650;
-  box-shadow: 0 12px 32px rgb(0 0 0 / 12%);
-}
-
 .job-form button {
   background: #315fca;
 }
@@ -1087,43 +1149,50 @@ main > p {
 .kapten-skills-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   margin: 0 0 16px;
   padding: 0;
   list-style: none;
 }
 
-.kapten-skill-item {
-  display: flex;
+.kapten-skill-tag {
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 9px 12px;
-  color: #86efac;
-  background: rgb(22 101 52 / 30%);
-  border: 1px solid #166534;
-  border-radius: 999px;
-  font-size: 0.85rem;
+  padding: 6px 8px;
+  color: #e2e8f0;
+  background: #0b1426;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
 }
 
 .kapten-skill-remove {
-  padding: 4px 9px;
-  color: #cbd5e1;
-  background: rgb(22 101 52 / 15%);
-  border: 1px solid #166534;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 600;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  background: none;
+  border: none;
+  outline: none;
+  border-radius: 0;
+  box-shadow: none;
+  cursor: pointer;
+  transition: color 0.15s;
 }
 
 .kapten-skill-remove:hover {
   color: #fecaca;
-  background: rgb(127 29 29 / 35%);
-  border-color: #7f1d1d;
 }
 
 .kapten-skills-add {
   display: flex;
   gap: 10px;
+  margin-bottom: 8px;
 }
 
 .kapten-skills-add input {
@@ -1194,17 +1263,17 @@ main > p {
   font-size: 0.9rem;
 }
 
-.pipeline-controls {
+.pipeline-filters-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 12px;
-  margin: 18px 0 16px;
+  margin: 12px 0;
 }
 
-.pipeline-controls input[type="search"] {
+.pipeline-filters-row input[type="search"] {
   flex: 1;
-  min-width: 220px;
+  min-width: 240px;
   min-height: 42px;
   padding: 10px 12px;
   color: #e2e8f0;
@@ -1214,12 +1283,12 @@ main > p {
   outline: none;
 }
 
-.pipeline-controls input[type="search"]:focus {
+.pipeline-filters-row input[type="search"]:focus {
   border-color: #60a5fa;
   box-shadow: 0 0 0 3px rgb(59 130 246 / 15%);
 }
 
-.pipeline-controls select {
+.pipeline-filters-row select {
   min-height: 42px;
   padding: 10px 12px;
   color: #e2e8f0;
@@ -1231,26 +1300,40 @@ main > p {
   cursor: pointer;
 }
 
-.pipeline-controls select:focus {
+.pipeline-filters-row select:focus {
   border-color: #60a5fa;
   box-shadow: 0 0 0 3px rgb(59 130 246 / 15%);
 }
 
-.pipeline-controls button {
-  min-height: 42px;
-  padding: 10px 15px;
+.pipeline-sim-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.pipeline-sim-date {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+.pipeline-sim-btn {
+  padding: 6px 12px;
   color: #dbeafe;
   background: #172554;
   border: 1px solid #2b4a87;
-  border-radius: 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
   font-weight: 600;
 }
 
-.pipeline-controls button:hover:not(:disabled) {
+.pipeline-sim-btn:hover:not(:disabled) {
   background: #1e3a8a;
 }
 
-.pipeline-controls button:disabled {
+.pipeline-sim-btn:disabled {
   color: #94a3b8;
   background: #0f172a;
   cursor: not-allowed;
@@ -1462,7 +1545,7 @@ main > p {
 
 .checklist-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  background: #2563eb;
   border-radius: 999px;
   transition: width 0.2s;
 }
@@ -1641,5 +1724,216 @@ main > p {
   margin-top: 12px;
   color: #fde68a;
   font-size: 0.85rem;
+}
+
+/* Landing — Halaman Awal */
+
+.main--landing {
+  padding-bottom: 0;
+}
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: calc(100vh - 84px);
+  width: 100%;
+}
+
+.landing-hero {
+  padding: 32px 20px;
+  text-align: center;
+}
+
+.landing-title {
+  margin: 0;
+  color: #f8fafc;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.landing-desc {
+  margin: 14px 0 28px;
+  color: #94a3b8;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.landing-cta {
+  display: inline-block;
+  padding: 13px 26px;
+  color: #fff;
+  background: #2563eb;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.landing-cta:hover {
+  background: #3b82f6;
+  transform: translateY(-1px);
+}
+
+/* Explorer — Skill Kapten dan Tambah Lamaran (2 kolom) */
+
+.explorer-two-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: #111c31;
+  border: 1px solid #263650;
+  border-radius: 18px;
+  padding: 24px;
+}
+
+.skill-card,
+.application-card {
+  align-self: stretch;
+}
+
+.skill-editor h2 {
+  margin: 0 0 10px;
+  color: #f8fafc;
+  font-size: 1.5rem;
+}
+
+.skill-editor p {
+  margin: 0 0 18px;
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 800px) {
+  .explorer-two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pipeline-column-toggle {
+  margin-left: auto;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.pipeline-detail-panel {
+  margin: 16px 0;
+  padding: 14px 16px;
+  background: #121d30;
+  border: 1px solid #334155;
+  border-radius: 10px;
+}
+
+.pipeline-detail-panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.pipeline-detail-panel-head h3 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 0.95rem;
+}
+
+.pipeline-detail-panel-close {
+  padding: 6px 10px;
+  color: #94a3b8;
+  background: #0b1426;
+  border: 1px solid #263650;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pipeline-detail-items {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pipeline-detail-item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pipeline-detail-item + .pipeline-detail-item {
+  border-top: 1px solid #1e2937;
+}
+
+.pipeline-detail-item-btn {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  padding: 10px 12px;
+  color: #cbd5e1;
+  background: #0b1426;
+  border: 1px solid #263650;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+.pipeline-detail-item-btn:hover {
+  background: #121d30;
+  border-color: #3b82f6;
+}
+
+.pipeline-detail-item-btn strong {
+  color: #f8fafc;
+  font-size: 0.9rem;
+}
+
+/* Ghosting Monitor */
+
+.pipeline-ghost-count {
+  margin: 0 0 12px;
+  color: #fca5a5;
+  font-weight: 700;
+}
+
+.ghost-risk-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ghost-risk-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  color: #fca5a5;
+  background: rgb(127 29 29 / 20%);
+  border: 1px solid #dc2626;
+  border-radius: 9px;
+  font-size: 0.85rem;
+}
+
+.ghost-risk-dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #dc2626;
+  box-shadow: 0 0 6px rgb(220 38 38 / 70%);
 }
 

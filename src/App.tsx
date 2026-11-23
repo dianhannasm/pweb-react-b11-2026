@@ -2,11 +2,12 @@
 import { useCallback, useState } from "react";
 import { Dashboard } from "./components/Dashboard";
 import { JobExplorer } from "./components/JobExplorer";
-import { JobForm, type ManualApplicationData } from "./components/JobForm";
-import { KaptenSkillsEditor } from "./components/KaptenSkillsEditor";
-import { Pipeline } from "./components/Pipeline";
 import { ApplicationDetail } from "./components/ApplicationDetail";
 import { UndoToast } from "./components/UndoToast";
+import { Landing } from "./components/Landing";
+import { Navbar, type NavPage } from "./components/Navbar";
+import { Pipeline } from "./components/Pipeline";
+import type { ManualApplicationData } from "./components/JobForm";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import type { Application, WorkMode } from "./types/application";
 import type { JobListing } from "./types/job";
@@ -31,6 +32,8 @@ function inferWorkMode(location: string): WorkMode {
 }
 
 function App() {
+  const [showLanding, setShowLanding] = useState(true);
+  const [activeTab, setActiveTab] = useState<ActiveTab>("explorer");
   const [applications, setApplications] = useLocalStorage<Application[]>(
     "aku-mw-magang:applications",
     [],
@@ -42,7 +45,6 @@ function App() {
   );
 
   const [deletedEntry, setDeletedEntry] = useState<DeletedEntry | null>(null);
-  const [activeTab, setActiveTab] = useState<ActiveTab>("explorer");
   const [selectedApplicationId, setSelectedApplicationId] = useState<
     string | null
   >(null);
@@ -50,6 +52,23 @@ function App() {
   const [simulatedDate, setSimulatedDate] = useState<Date>(
     () => new Date(),
   );
+
+  function handleNavigate(page: NavPage) {
+    setSelectedApplicationId(null);
+
+    if (page === "beranda") {
+      setShowLanding(true);
+      return;
+    }
+
+    setShowLanding(false);
+    setActiveTab(page);
+  }
+
+  function handleStartExploration() {
+    setShowLanding(false);
+    setActiveTab("explorer");
+  }
 
   function handleSaveJob(job: JobListing) {
     const now = new Date().toISOString();
@@ -176,96 +195,59 @@ function App() {
     (app) => app.id === selectedApplicationId,
   );
 
+  const navbarActive: NavPage = showLanding ? "beranda" : activeTab;
+
   return (
-    <main>
-      <h1>Aku Mw Magang</h1>
-      <p>Eksplorasi lowongan dan kelola wishlist magang.</p>
+    <>
+      <Navbar active={navbarActive} onNavigate={handleNavigate} />
 
-      <nav className="tab-nav" aria-label="Navigasi utama">
-        <button
-          type="button"
-          className={`tab-button ${activeTab === "explorer" ? "active" : ""}`}
-          onClick={() => {
-            setActiveTab("explorer");
-            setSelectedApplicationId(null);
-          }}
-        >
-          Eksplorasi Lowongan
-        </button>
-
-        <button
-          type="button"
-          className={`tab-button ${activeTab === "pipeline" ? "active" : ""}`}
-          onClick={() => {
-            setActiveTab("pipeline");
-            setSelectedApplicationId(null);
-          }}
-        >
-          War Room Pipeline
-        </button>
-
-        <button
-          type="button"
-          className={`tab-button ${activeTab === "dashboard" ? "active" : ""}`}
-          onClick={() => {
-            setActiveTab("dashboard");
-            setSelectedApplicationId(null);
-          }}
-        >
-          Dashboard &amp; Offer ({applications.length})
-        </button>
-      </nav>
-
-      {activeTab === "dashboard" ? (
-        <Dashboard
-          applications={applications}
-          kaptenSkills={kaptenSkills}
-        />
-      ) : activeTab === "pipeline" ? (
-        selectedApplication ? (
-          <ApplicationDetail
-            application={selectedApplication}
-            onBack={() => setSelectedApplicationId(null)}
-            onUpdate={handleUpdateApplication}
-            onDelete={handleDeleteApplication}
-          />
+      <main className={showLanding ? "main--landing" : ""}>
+        {showLanding ? (
+          <Landing onStart={handleStartExploration} />
+        ) : activeTab === "dashboard" ? (
+          <>
+            <h2 className="page-title">Dashboard &amp; Offer</h2>
+            <Dashboard
+              applications={applications}
+              kaptenSkills={kaptenSkills}
+            />
+          </>
+        ) : activeTab === "pipeline" ? (
+          selectedApplication ? (
+            <ApplicationDetail
+              application={selectedApplication}
+              onBack={() => setSelectedApplicationId(null)}
+              onUpdate={handleUpdateApplication}
+              onDelete={handleDeleteApplication}
+            />
+          ) : (
+            <Pipeline
+              applications={applications}
+              kaptenSkills={kaptenSkills}
+              onSelectApplication={(application) =>
+                setSelectedApplicationId(application.id)
+              }
+              onSimulate15Days={handleSimulate15Days}
+              simulatedDate={simulatedDate}
+            />
+          )
         ) : (
-          <Pipeline
-            applications={applications}
-            kaptenSkills={kaptenSkills}
-            onSelectApplication={(application) =>
-              setSelectedApplicationId(application.id)
-            }
-            onSimulate15Days={handleSimulate15Days}
-            simulatedDate={simulatedDate}
-          />
-        )
-      ) : (
-        <>
-          <KaptenSkillsEditor
-            skills={kaptenSkills}
-            onChange={setKaptenSkills}
-          />
-
-          <JobForm
-            applications={applications}
-            onSubmit={handleAddApplication}
-          />
-
           <JobExplorer
             kaptenSkills={kaptenSkills}
             applications={applications}
             onSaveJob={handleSaveJob}
+            onAddApplication={handleAddApplication}
+            onSkillsChange={setKaptenSkills}
           />
-        </>
-      )}
+        )}
 
-      <UndoToast
-        deletedApp={deletedEntry?.app ?? null}
-        onUndo={handleUndoDelete}
-        onExpire={handleExpireUndo}
-      />
-    </main>
+        <UndoToast
+          deletedApp={deletedEntry?.app ?? null}
+          onUndo={handleUndoDelete}
+          onExpire={handleExpireUndo}
+        />
+      </main>
+    </>
   );
 }
 

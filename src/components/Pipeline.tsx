@@ -59,13 +59,17 @@ export function Pipeline({
   simulatedDate,
 }: PipelineProps) {
   const [search, setSearch] = useState("");
-  const [statusFilter, setStatusFilter] = useState<"all" | ApplicationStatus>(
-    "all",
-  );
+  const [statusFilter, setStatusFilter] = useState<
+    "all" | ApplicationStatus
+  >("all");
   const [onlyGhostRisk, setOnlyGhostRisk] = useState(false);
   const [sortOption, setSortOption] = useState<SortOption>("terbaru");
+  const [openStatus, setOpenStatus] = useState<ApplicationStatus | null>(
+    null,
+  );
 
   const conflicts = checkInterviewConflicts(applications);
+  const ghostRiskApplications = applications.filter(isGhostingRisk);
 
   const hasSimulatable = applications.some(
     (application) =>
@@ -88,7 +92,8 @@ export function Pipeline({
       const matchesStatus =
         statusFilter === "all" || application.status === statusFilter;
 
-      const matchesGhosting = !onlyGhostRisk || isGhostingRisk(application);
+      const matchesGhosting =
+        !onlyGhostRisk || isGhostingRisk(application);
 
       return matchesSearch && matchesStatus && matchesGhosting;
     });
@@ -120,6 +125,18 @@ export function Pipeline({
     return filtered;
   }, [applications, search, statusFilter, onlyGhostRisk, sortOption]);
 
+  function toggleColumn(status: ApplicationStatus) {
+    setOpenStatus((current) =>
+      current === status ? null : status,
+    );
+  }
+
+  const openApplications = openStatus
+    ? filteredApplications.filter(
+        (application) => application.status === openStatus,
+      )
+    : [];
+
   return (
     <section className="pipeline" aria-label="War Room Pipeline">
       {conflicts.length > 0 && (
@@ -127,42 +144,39 @@ export function Pipeline({
           <strong>Peringatan Bentrok Interview</strong>
           <p>
             Terdeteksi {conflicts.length} lamaran berstatus INTERVIEW dengan
-            jadwal yang bertabrakan (&lt; 60 menit). Pastikan jadwal interview
-            mereka tidak bertabrakan.
+            jadwal yang bertabrakan (&lt; 60 menit). Pastikan jadwal
+            interview mereka tidak bertabrakan.
           </p>
         </div>
       )}
 
       <div className="pipeline-header">
-        <div>
-          <h2>War Room Pipeline</h2>
+        <div className="pipeline-header-main">
+          <h2 className="page-title">War Room Pipeline</h2>
           <p>Pantau perjalanan setiap lamaran magangmu.</p>
         </div>
 
-        <span className="pipeline-total">
-          {applications.length} Total Lamaran
-        </span>
-      </div>
-
-      <div className="pipeline-simulation">
-        <div>
-          <strong>Simulasi Waktu</strong>
-          <p>
-            Tanggal simulasi:{" "}
-            {simulatedDate.toLocaleDateString("id-ID")}
-          </p>
+        <div className="pipeline-sim-block">
+          <span className="pipeline-sim-date">
+            {simulatedDate.toLocaleDateString("id-ID", {
+              weekday: "long",
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })}
+          </span>
+          <button
+            type="button"
+            className="pipeline-sim-btn"
+            onClick={onSimulate15Days}
+            disabled={!hasSimulatable}
+          >
+            Simulasikan +15 Hari
+          </button>
         </div>
-
-        <button
-          type="button"
-          onClick={onSimulate15Days}
-          disabled={!hasSimulatable}
-        >
-          Simulasikan +15 Hari
-        </button>
       </div>
 
-      <div className="pipeline-controls">
+      <div className="pipeline-filters-row">
         <input
           type="search"
           value={search}
@@ -174,7 +188,9 @@ export function Pipeline({
         <select
           value={statusFilter}
           onChange={(event) =>
-            setStatusFilter(event.target.value as "all" | ApplicationStatus)
+            setStatusFilter(
+              event.target.value as "all" | ApplicationStatus,
+            )
           }
           aria-label="Filter status lamaran"
         >
@@ -217,9 +233,7 @@ export function Pipeline({
         <div className="pipeline-stat">
           <span>Interview</span>
           <strong>
-            {applications.filter(
-              (app) => app.status === "INTERVIEW",
-            ).length}
+            {applications.filter((app) => app.status === "INTERVIEW").length}
           </strong>
         </div>
 
@@ -238,79 +252,111 @@ export function Pipeline({
 
       <div className="pipeline-board">
         {pipelineStatuses.map((status) => {
-          const columnApplications = filteredApplications.filter(
+          const isOpen = openStatus === status;
+          const columnApps = filteredApplications.filter(
             (application) => application.status === status,
           );
 
           return (
-            <div className="pipeline-column" key={status}>
-              <div className="pipeline-column-header">
+            <div
+              className={`pipeline-column${isOpen ? " open" : ""}`}
+              key={status}
+            >
+              <div
+                className="pipeline-column-header"
+                role="button"
+                tabIndex={0}
+                aria-expanded={isOpen}
+                onClick={() => toggleColumn(status)}
+              >
                 <h3>{statusLabels[status]}</h3>
-                <span>{columnApplications.length}</span>
+                <span>{columnApps.length}</span>
+                <span className="pipeline-column-toggle">
+                  {isOpen ? "−" : "+"}
+                </span>
               </div>
-
-              {columnApplications.length === 0 ? (
-                <p className="pipeline-empty">
-                  Belum ada lamaran
-                </p>
-              ) : (
-                columnApplications.map((application) => {
-                  const doneChecklist = countDoneChecklist(
-                    application.checklist,
-                  );
-                  const totalChecklist = application.checklist.length;
-                  const match = calculateSkillMatch(
-                    kaptenSkills,
-                    application.requiredSkills,
-                  );
-
-                  return (
-                    <button
-                      type="button"
-                      className="pipeline-card"
-                      key={application.id}
-                      onClick={() => onSelectApplication(application)}
-                    >
-                      <strong>{application.role}</strong>
-                      <span>{application.company}</span>
-                      <span className="pipeline-card-status">
-                        {statusLabels[application.status]}
-                      </span>
-                      {application.cvVersion && (
-                        <span className="pipeline-card-cv">
-                          CV: {application.cvVersion}
-                        </span>
-                      )}
-                      <span className="pipeline-card-checklist">
-                        {doneChecklist}/{totalChecklist} checklist
-                      </span>
-                      <span className="pipeline-card-match">
-                        Skill Match: {match.score}%
-                      </span>
-                    </button>
-                  );
-                })
-              )}
             </div>
           );
         })}
       </div>
 
+      {openStatus && (
+        <div className="pipeline-detail-panel">
+          <div className="pipeline-detail-panel-head">
+            <h3>Isi {statusLabels[openStatus]}</h3>
+            <button
+              type="button"
+              className="pipeline-detail-panel-close"
+              onClick={() => setOpenStatus(null)}
+            >
+              ✕
+            </button>
+          </div>
+
+          <ul className="pipeline-detail-items">
+            {openApplications.length === 0 ? (
+              <p>Belum ada lamaran pada status ini.</p>
+            ) : (
+              openApplications.map((application) => {
+                const doneChecklist = countDoneChecklist(
+                  application.checklist,
+                );
+                const totalChecklist = application.checklist.length;
+                const match = calculateSkillMatch(
+                  kaptenSkills,
+                  application.requiredSkills,
+                );
+
+                return (
+                  <li
+                    className="pipeline-detail-item"
+                    key={application.id}
+                  >
+                    <button
+                      type="button"
+                      className="pipeline-detail-item-btn"
+                      onClick={() => onSelectApplication(application)}
+                    >
+                      <strong>{application.role}</strong>
+                      <span>{application.company}</span>
+                      <span>Status: {statusLabels[application.status]}</span>
+                      <span>CV: {application.cvVersion ?? "-"}</span>
+                      <span>
+                        Checklist: {doneChecklist}/{totalChecklist}
+                      </span>
+                      <span>Skill Match: {match.score}%</span>
+                    </button>
+                  </li>
+                );
+              })
+            )}
+          </ul>
+        </div>
+      )}
+
       <div className="pipeline-alerts">
         <div className="pipeline-alert">
           <h3>Ghosting Monitor</h3>
-
-          {applications.filter((app) => app.status === "GHOSTED").length ===
-          0 ? (
-            <p>Belum ada lamaran berstatus ghosted.</p>
+          <p className="pipeline-ghost-count">
+            {ghostRiskApplications.length} lamaran rawan ghosting
+          </p>
+          {ghostRiskApplications.length === 0 ? (
+            <p>Belum ada lamaran yang rawan ghosting.</p>
           ) : (
-            applications
-              .filter((app) => app.status === "GHOSTED")
-              .map((application) => (
-                <p key={application.id}>
-                  {application.company} — {application.role}
-                </p>
-              ))
+            <ul className="ghost-risk-list">
+              {ghostRiskApplications.map((application) => (
+                <li className="ghost-risk-item" key={application.id}>
+                  <span className="ghost-risk-dot" />
+                  <span>
+                    {application.company} — {application.role}
+                  </span>
+                  <span>{statusLabels[application.status]}</span>
+                  <span>
+                    {daysSince(application.lastUpdatedAt)} hari tidak update
+                  </span>
+                </li>
+              ))}
+            </ul>
           )}
         </div>
 
@@ -318,9 +364,7 @@ export function Pipeline({
           <h3>Interview Conflict Monitor</h3>
 
           {conflicts.length === 0 ? (
-            <p>
-              Tidak ditemukan jadwal interview yang bentrok.
-            </p>
+            <p>Tidak ditemukan jadwal interview yang bentrok.</p>
           ) : (
             conflicts.map((conflict, index) => (
               <p key={index}>
@@ -333,5 +377,11 @@ export function Pipeline({
         </div>
       </div>
     </section>
+  );
+}
+
+function daysSince(date: string): number {
+  return Math.floor(
+    (Date.now() - new Date(date).getTime()) / (1000 * 60 * 60 * 24),
   );
 }

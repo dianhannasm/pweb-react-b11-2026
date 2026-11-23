@@ -60,27 +60,9 @@ export function KaptenSkillsEditor({
   }
 
   return (
-    <section className="kapten-skills-editor">
+    <section className="skill-editor">
       <h2>Skill Kapten</h2>
-      <p>
-        Skill ini dipakai untuk menghitung Skill Match di lowongan.
-      </p>
-
-      <ul className="kapten-skills-list">
-        {skills.map((skill, index) => (
-          <li className="kapten-skill-item" key={`${skill}-${index}`}>
-            <span className="kapten-skill-name">{skill}</span>
-            <button
-              type="button"
-              className="kapten-skill-remove"
-              aria-label={`Hapus skill ${skill}`}
-              onClick={() => removeSkill(index)}
-            >
-              Hapus
-            </button>
-          </li>
-        ))}
-      </ul>
+      <p>Skill ini dipakai untuk menghitung Skill Match di lowongan.</p>
 
       <div className="kapten-skills-add">
         <input
@@ -95,6 +77,22 @@ export function KaptenSkillsEditor({
           Tambah Skill
         </button>
       </div>
+
+      <ul className="kapten-skills-list">
+        {skills.map((skill, index) => (
+          <li className="kapten-skill-tag" key={`${skill}-${index}`}>
+            <span className="kapten-skill-name">{skill}</span>
+            <button
+              type="button"
+              className="kapten-skill-remove"
+              aria-label={`Hapus skill ${skill}`}
+              onClick={() => removeSkill(index)}
+            >
+              ×
+            </button>
+          </li>
+        ))}
+      </ul>
 
       {feedback && (
         <p className="kapten-skills-feedback" role="status">

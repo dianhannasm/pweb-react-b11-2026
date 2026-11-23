@@ -1,0 +1,20 @@
+- main [ref=e3]:
+  - navigation "Navigasi aplikasi" [ref=e4]:
+    - button "Beranda" [ref=e5] [cursor=pointer]
+    - button "Eksplorasi Lowongan" [ref=e6] [cursor=pointer]
+    - button "War Room Pipeline" [ref=e7] [cursor=pointer]
+    - button "Dashboard & Offer" [ref=e8] [cursor=pointer]
+  - region "Beranda — Aku Mw Magang" [ref=e9]:
+    - generic [ref=e10]:
+      - heading "Aku Mw Magang" [level=1] [ref=e11]
+      - paragraph [ref=e12]: Aplikasi mandiri untuk melacak skill Kapten, eksplorasi lowongan, dan perjalanan lamaran magangmu — dari pencarian hingga tawaran kerja.
+      - button "Mulai Eksplorasi" [ref=e13] [cursor=pointer]
+    - generic [ref=e14]:
+      - heading "Fitur Utama" [level=2] [ref=e15]
+      - list [ref=e16]:
+        - listitem [ref=e17]: Eksplorasi lowongan dengan nilai kecocokan Skill Match otomatis.
+        - listitem [ref=e18]: Simpan lowongan favorit ke wishlist.
+        - listitem [ref=e19]: "Lacak status lamaran di setiap fase: Wishlist, APPLIED, Screening, Interview, Offer, Rejected, sampai Ghosted."
+        - listitem [ref=e20]: Checklist persiapan & timer latihan interview.
+        - listitem [ref=e21]: Statistik dan perbandingan tawaran (Offer Comparator).
+        - listitem [ref=e22]: Monitor bentrok interview dan deteksi lamaran rawan ghosting.

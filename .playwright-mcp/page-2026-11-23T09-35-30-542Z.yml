@@ -1,0 +1,101 @@
+- main [ref=e3]:
+  - navigation "Navigasi aplikasi" [ref=e4]:
+    - button "Beranda" [ref=e5] [cursor=pointer]
+    - button "Eksplorasi Lowongan" [ref=e6] [cursor=pointer]
+    - button "War Room Pipeline" [active] [ref=e7] [cursor=pointer]
+    - button "Dashboard & Offer" [ref=e8] [cursor=pointer]
+  - region "War Room Pipeline" [ref=e1372]:
+    - alert [ref=e1373]:
+      - strong [ref=e1374]: Peringatan Bentrok Interview
+      - paragraph [ref=e1375]: Terdeteksi 1 lamaran berstatus INTERVIEW dengan jadwal yang bertabrakan (< 60 menit). Pastikan jadwal interview mereka tidak bertabrakan.
+    - generic [ref=e1376]:
+      - generic [ref=e1377]:
+        - heading "War Room Pipeline" [level=2] [ref=e1378]
+        - paragraph [ref=e1379]: Pantau perjalanan setiap lamaran magangmu.
+      - generic [ref=e1380]: 10 Total Lamaran
+    - generic [ref=e1381]:
+      - generic [ref=e1382]: 23/11/2026
+      - button "Simulasikan +15 Hari" [ref=e1383] [cursor=pointer]
+      - searchbox "Cari lamaran di pipeline" [ref=e1384]
+      - combobox "Filter status lamaran" [ref=e1385] [cursor=pointer]:
+        - option "Semua status" [selected]
+        - option "Wishlist"
+        - option "Applied"
+        - option "Screening"
+        - option "Interview"
+        - option "Offer"
+        - option "Rejected"
+        - option "Ghosted"
+      - generic [ref=e1386]:
+        - checkbox "Hanya Rawan Ghosting" [ref=e1387]
+        - text: Hanya Rawan Ghosting
+      - combobox "Urutkan lamaran" [ref=e1388] [cursor=pointer]:
+        - option "Terbaru" [selected]
+        - option "Jadwal Interview Terdekat"
+        - option "Offer Tertinggi"
+    - generic [ref=e1389]:
+      - generic [ref=e1390]:
+        - generic [ref=e1391]: Total Lamaran
+        - strong [ref=e1392]: "10"
+      - generic [ref=e1393]:
+        - generic [ref=e1394]: Interview
+        - strong [ref=e1395]: "2"
+      - generic [ref=e1396]:
+        - generic [ref=e1397]: Ghosted
+        - strong [ref=e1398]: "1"
+      - generic [ref=e1399]:
+        - generic [ref=e1400]: Jadwal Bentrok
+        - strong [ref=e1401]: "1"
+    - generic [ref=e1402]:
+      - button "Wishlist 0 +" [ref=e1404] [cursor=pointer]:
+        - heading "Wishlist" [level=3] [ref=e1405]
+        - generic [ref=e1406]: "0"
+        - generic [ref=e1407]: +
+      - button "Applied 2 +" [ref=e1409] [cursor=pointer]:
+        - heading "Applied" [level=3] [ref=e1410]
+        - generic [ref=e1411]: "2"
+        - generic [ref=e1412]: +
+      - button "Screening 1 +" [ref=e1414] [cursor=pointer]:
+        - heading "Screening" [level=3] [ref=e1415]
+        - generic [ref=e1416]: "1"
+        - generic [ref=e1417]: +
+      - button "Interview 2 +" [ref=e1419] [cursor=pointer]:
+        - heading "Interview" [level=3] [ref=e1420]
+        - generic [ref=e1421]: "2"
+        - generic [ref=e1422]: +
+      - button "Offer 4 +" [ref=e1424] [cursor=pointer]:
+        - heading "Offer" [level=3] [ref=e1425]
+        - generic [ref=e1426]: "4"
+        - generic [ref=e1427]: +
+      - button "Rejected 0 +" [ref=e1429] [cursor=pointer]:
+        - heading "Rejected" [level=3] [ref=e1430]
+        - generic [ref=e1431]: "0"
+        - generic [ref=e1432]: +
+      - button "Ghosted 1 +" [ref=e1434] [cursor=pointer]:
+        - heading "Ghosted" [level=3] [ref=e1435]
+        - generic [ref=e1436]: "1"
+        - generic [ref=e1437]: +
+    - generic [ref=e1438]:
+      - generic [ref=e1439]:
+        - heading "Ghosting Monitor" [level=3] [ref=e1440]
+        - paragraph [ref=e1441]: 4 lamaran rawan ghosting
+        - list [ref=e1442]:
+          - listitem [ref=e1443]:
+            - generic [ref=e1445]: Tech A — Frontend Intern
+            - generic [ref=e1446]: Ghosted
+            - generic [ref=e1447]: 0 hari tidak update
+          - listitem [ref=e1448]:
+            - generic [ref=e1450]: H2 — Intern 2
+            - generic [ref=e1451]: Applied
+            - generic [ref=e1452]: 15 hari tidak update
+          - listitem [ref=e1453]:
+            - generic [ref=e1455]: GH2 — Role GH2
+            - generic [ref=e1456]: Screening
+            - generic [ref=e1457]: 15 hari tidak update
+          - listitem [ref=e1458]:
+            - generic [ref=e1460]: SIM1 — Role SIM1
+            - generic [ref=e1461]: Applied
+            - generic [ref=e1462]: 15 hari tidak update
+      - generic [ref=e1463]:
+        - heading "Interview Conflict Monitor" [level=3] [ref=e1464]
+        - paragraph [ref=e1465]: D dan E memiliki jadwal interview yang bertabrakan.
