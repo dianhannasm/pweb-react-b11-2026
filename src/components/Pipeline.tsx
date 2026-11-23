@@ -6,7 +6,7 @@ import type {
 } from "../types/application";
 import { checkInterviewConflicts } from "../utils/conflictChecker";
 import { calculateSkillMatch } from "../utils/skillMatch";
-import { isGhostingRisk } from "./Statistics";
+import { isGhostingRisk } from "../utils/ghostingChecker";
 
 interface PipelineProps {
   applications: Application[];

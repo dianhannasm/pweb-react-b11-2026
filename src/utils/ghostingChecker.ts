@@ -2,6 +2,24 @@
 import type { Application } from "../types/application";
 
 const GHOSTING_THRESHOLD_DAYS = 15;
+const FOURTEEN_DAYS_MS = 14 * 24 * 60 * 60 * 1000;
+
+export function isGhostingRisk(app: Application): boolean {
+  if (app.status === "GHOSTED") {
+    return true;
+  }
+
+  if (app.status !== "APPLIED" && app.status !== "SCREENING") {
+    return false;
+  }
+
+  const updatedTime = Date.parse(app.lastUpdatedAt);
+  if (Number.isNaN(updatedTime)) {
+    return false;
+  }
+
+  return Date.now() - updatedTime > FOURTEEN_DAYS_MS;
+}
 
 export function detectGhostedApplications(
   applications: Application[],
