@@ -306,6 +306,7 @@ export function Pipeline({
                   kaptenSkills,
                   application.requiredSkills,
                 );
+                const ghostRisk = isGhostingRisk(application);
 
                 return (
                   <li
@@ -325,6 +326,9 @@ export function Pipeline({
                         Checklist: {doneChecklist}/{totalChecklist}
                       </span>
                       <span>Skill Match: {match.score}%</span>
+                      {ghostRisk && (
+                        <span className="ghosting-badge">Rawan Ghosting</span>
+                      )}
                     </button>
                   </li>
                 );

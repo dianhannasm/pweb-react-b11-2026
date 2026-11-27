@@ -4,7 +4,6 @@ import { Dashboard } from "./components/Dashboard";
 import { JobExplorer } from "./components/JobExplorer";
 import { ApplicationDetail } from "./components/ApplicationDetail";
 import { UndoToast } from "./components/UndoToast";
-import { Landing } from "./components/Landing";
 import { Navbar, type NavPage } from "./components/Navbar";
 import { Pipeline } from "./components/Pipeline";
 import type { ManualApplicationData } from "./components/JobForm";
@@ -32,7 +31,6 @@ function inferWorkMode(location: string): WorkMode {
 }
 
 function App() {
-  const [showLanding, setShowLanding] = useState(true);
   const [activeTab, setActiveTab] = useState<ActiveTab>("explorer");
   const [applications, setApplications] = useLocalStorage<Application[]>(
     "aku-mw-magang:applications",
@@ -55,19 +53,7 @@ function App() {
 
   function handleNavigate(page: NavPage) {
     setSelectedApplicationId(null);
-
-    if (page === "beranda") {
-      setShowLanding(true);
-      return;
-    }
-
-    setShowLanding(false);
     setActiveTab(page);
-  }
-
-  function handleStartExploration() {
-    setShowLanding(false);
-    setActiveTab("explorer");
   }
 
   function handleSaveJob(job: JobListing) {
@@ -195,16 +181,12 @@ function App() {
     (app) => app.id === selectedApplicationId,
   );
 
-  const navbarActive: NavPage = showLanding ? "beranda" : activeTab;
-
   return (
     <>
-      <Navbar active={navbarActive} onNavigate={handleNavigate} />
+      <Navbar active={activeTab} onNavigate={handleNavigate} />
 
-      <main className={showLanding ? "main--landing" : ""}>
-        {showLanding ? (
-          <Landing onStart={handleStartExploration} />
-        ) : activeTab === "dashboard" ? (
+      <main>
+        {activeTab === "dashboard" ? (
           <>
             <h2 className="page-title">Dashboard &amp; Offer</h2>
             <Dashboard

@@ -53,20 +53,20 @@ export function InterviewTimer() {
   const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
-    if (!isRunning || remaining <= 0) return;
+    if (!isRunning) return;
 
     const timer = window.setInterval(() => {
-      setRemaining((current) => (current > 0 ? current - 1 : 0));
+      setRemaining((current) => {
+        if (current <= 1) {
+          setIsRunning(false);
+          return 0;
+        }
+        return current - 1;
+      });
     }, 1000);
 
     return () => window.clearInterval(timer);
-  }, [isRunning, remaining]);
-
-  useEffect(() => {
-    if (isRunning && remaining <= 0) {
-      setIsRunning(false);
-    }
-  }, [isRunning, remaining]);
+  }, [isRunning]);
 
   function nextQuestion() {
     setIsRunning(false);

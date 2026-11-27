@@ -1,5 +1,4 @@
 export type NavPage =
-  | "beranda"
   | "explorer"
   | "pipeline"
   | "dashboard";
@@ -20,8 +19,8 @@ export function Navbar({ active, onNavigate }: NavbarProps) {
     <nav className="top-nav" aria-label="Navigasi aplikasi">
       <button
         type="button"
-        className={`top-nav-brand ${active === "beranda" ? "active" : ""}`}
-        onClick={() => onNavigate("beranda")}
+        className="top-nav-brand"
+        onClick={() => onNavigate("explorer")}
       >
         Aku Mw Magang
       </button>

@@ -1937,3 +1937,16 @@ main > p {
   box-shadow: 0 0 6px rgb(220 38 38 / 70%);
 }
 
+
+.ghosting-badge {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 4px 10px;
+  color: #fecaca;
+  background: rgb(153 27 27 / 35%);
+  border: 1px solid #dc2626;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
